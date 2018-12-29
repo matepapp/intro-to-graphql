@@ -9,6 +9,8 @@ const SCColor = '#ff3000'
 export default {
   ...future,
   font: 'Lato',
+  transitionTimingFunction: 'ease-in-out',
+  transitionDuration: '0.6s',
   colors: {
     ...future.colors,
     text: 'white',
