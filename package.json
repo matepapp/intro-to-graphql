@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "Deck created with mdx-deck",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
-    "pdf": "mdx-deck pdf deck.mdx",
-    "image": "mdx-deck screenshot deck.mdx",
+    "start": "mdx-deck deck.js",
+    "build": "mdx-deck build deck.js",
+    "pdf": "mdx-deck pdf deck.js",
+    "image": "mdx-deck screenshot deck.js",
     "help": "mdx-deck"
   },
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
+    "grid-styled": "^5.0.2",
     "mdx-deck": "^1.6.7"
   },
   "name": "intro-to-graphql"

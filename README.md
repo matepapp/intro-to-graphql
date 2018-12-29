@@ -1,5 +1,4 @@
-
-# mdx-deck basic template
+# Intro to GraphQL
 
 This was generated with [mdx-deck][]'s `npm init deck` command.
 
