@@ -21,6 +21,12 @@ export default {
     backgroundColor: SCColor,
     color: 'white',
   },
+  h3: {
+    textTransform: 'none',
+  },
+  link: {
+    textDecoration: 'none'
+  },
   prism: {
     style: tomorrow,
     languages: {
