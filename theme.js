@@ -1,12 +1,11 @@
 import {
   future
-} from 'mdx-deck/themes'
-import tomorrow from 'react-syntax-highlighter/styles/prism/tomorrow'
-import graphql from 'react-syntax-highlighter/languages/prism/graphql'
+} from 'mdx-deck/themes';
+import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
-const SCColor = '#ff3000'
+const SCColor = '#ff3000';
 
-export default {
+export const theme = {
   ...future,
   font: 'Lato',
   transitionTimingFunction: 'ease-in-out',
@@ -14,24 +13,22 @@ export default {
     ...future.colors,
     text: 'white',
     background: 'black',
-    link: SCColor,
+    link: SCColor
   },
   h2: {
     textTransform: 'none',
     padding: '10px 20px',
     backgroundColor: SCColor,
-    color: 'white',
+    color: 'white'
   },
   h3: {
-    textTransform: 'none',
+    textTransform: 'none'
   },
   link: {
     textDecoration: 'none'
   },
-  prism: {
-    style: tomorrow,
-    languages: {
-      graphql: graphql
-    }
+  codeSurfer: {
+    ...oceanicNext,
+    showNumbers: false
   }
-}
+};

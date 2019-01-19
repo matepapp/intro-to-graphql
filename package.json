@@ -14,7 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "grid-styled": "^5.0.2",
-    "mdx-deck": "^1.6.7"
+    "mdx-deck": "^1.6.7",
+    "mdx-deck-code-surfer": "^0.5.3"
   },
   "name": "intro-to-graphql"
 }
