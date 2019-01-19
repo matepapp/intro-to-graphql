@@ -1,0 +1,101 @@
+type Transaction {
+  id: ID! @unique
+  number: String! @unique
+  date: DateTime!
+  bookingDate: DateTime
+  status: TransactionStatus!
+  partner: TransactionPartner
+  sourceAccount: Account! @relation(name: "SourceAccount")
+  targetAccount: Account! @relation(name: "TargetAccount")
+  card: Card
+  category: Category
+}
+
+type Account {
+  id: ID! @unique
+  number: String! @unique
+  name: String!
+  type: AccountType!
+  currency: Currency!
+  bookedTransactions: Money
+  cards: [Card!]!
+}
+
+type Card {
+  id: ID! @unique
+  number: String! @unique
+  holderName: String
+  expiry: DateTime!
+  account: Account
+  cvc: String!
+  limit: Int!
+}
+
+type Category {
+  id: ID!
+  name: String!
+}
+
+type Money {
+  amount: Double!
+  currency: Currency!
+}
+
+type TransactionPartner {
+  id: ID! @unique
+  name: String!
+  address: String!
+}
+
+enum TransactionStatus {
+  IN_PROGRESS
+  REJECTED
+  FUTURE
+  SUCCESSFUL
+}
+
+enum AccountType {
+  SAVINGS
+  CREDIT
+  WEBCARD
+  CURRENT
+}
+
+enum CardType {
+  DEBIT
+  CREDIT
+  JUNIOR
+  WEB
+}
+
+enum CardStatus {
+  ACTIVE
+  INACTIVE
+  BLOCKED
+}
+
+enum Currency {
+  EUR
+  USD
+  GBP
+  AUD
+  BGN
+  CAD
+  CHF
+  CNY
+  CZK
+  DKK
+  HRK
+  HUF
+  JPY
+  NOK
+  PLN
+  RON
+  RSD
+  RUB
+  SEK
+  TRY
+  UAH
+  ZAR
+  MXN
+}

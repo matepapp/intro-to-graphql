@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/mate-papp-6c597a/intro-to-graphql/demo
+datamodel: datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
