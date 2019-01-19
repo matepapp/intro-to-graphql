@@ -10,7 +10,6 @@ export default {
   ...future,
   font: 'Lato',
   transitionTimingFunction: 'ease-in-out',
-  transitionDuration: '0.6s',
   colors: {
     ...future.colors,
     text: 'white',
@@ -18,7 +17,7 @@ export default {
     link: SCColor,
   },
   h2: {
-    textTransform: 'lowercase',
+    textTransform: 'none',
     padding: '10px 20px',
     backgroundColor: SCColor,
     color: 'white',
