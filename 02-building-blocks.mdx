@@ -1,0 +1,76 @@
+import { Split } from 'mdx-deck/layouts';
+import { CodeSurfer } from 'mdx-deck-code-surfer';
+
+# Building blocks 🧱
+
+---
+
+## Query
+
+- single endpoint
+- structure of the data is flexible
+- client declares its data needs
+
+---
+
+```graphql Hello GraphQL
+query {
+  hello {
+    technology
+  }
+}
+----
+1
+2, 3
+```
+
+---
+
+```json Response
+{
+  "data": {
+    "hello": {
+      "technology": "GraphQL",
+    }
+  }
+}
+----
+2
+3, 4
+```
+
+---
+
+```graphql Twitter Query with Name and arguments
+query TwitterUserQuery {
+  user(identifier: name, identity: "matepappp") {
+    name
+    description
+    tweets_count
+    created_at
+  }
+}
+----
+1
+2
+3:6
+```
+
+---
+
+```json Response
+{
+  "data": {
+    "user": {
+      "name": "Mate Papp",
+      "description": "javaswift developer @TeamSupercharge",
+      "tweets_count": 4586,
+      "created_at": "Mon Jul 16 14:16:37 +0000 2012"
+    }
+  }
+}
+----
+2
+3
+4:7
+```
