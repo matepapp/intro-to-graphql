@@ -1,6 +1,12 @@
 # Intro to GraphQL
 
-This was generated with [mdx-deck][]'s `npm init deck` command.
+An introductory presentation about GraphQL.
+
+For demonstration purposes I created a very simple database and GraphQL API wrapper using [Prisma](https://prisma.io). You can try it out [here](https://eu1.prisma.sh/mate-papp-6c597a/intro-to-graphql/demo) in [GraphQL Playground](https://github.com/prisma/graphql-playground) or you can browse the source in the `prisma` folder.
+
+---
+
+The presentation was generated with [mdx-deck][]'s `npm init deck` command.
 
 ## Development
 
@@ -9,8 +15,6 @@ To run the presentation deck in development mode:
 ```sh
 npm start
 ```
-
-Edit the [`deck.mdx`](deck.mdx) file to get started.
 
 ## Exporting
 
