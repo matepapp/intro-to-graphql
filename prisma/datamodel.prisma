@@ -3,9 +3,11 @@ type Transaction {
   number: String! @unique
   date: DateTime!
   bookingDate: DateTime
+  amount: Money! @relation(name: "TransactionAmount")
+  originalAmount: Money @relation(name: "OriginalAmount")
   status: TransactionStatus!
   partner: TransactionPartner
-  sourceAccount: Account! @relation(name: "SourceAccount")
+  sourceAccount: Account @relation(name: "SourceAccount")
   targetAccount: Account! @relation(name: "TargetAccount")
   card: Card
   category: Category
@@ -17,13 +19,15 @@ type Account {
   name: String!
   type: AccountType!
   currency: Currency!
-  bookedTransactions: Money
+  balance: Money! @relation(name: "AccountBalance")
+  bookedTransactions: Money @relation(name: "BookedTransactions")
   cards: [Card!]!
 }
 
 type Card {
   id: ID! @unique
   number: String! @unique
+  name: String!
   holderName: String
   expiry: DateTime!
   account: Account
@@ -32,12 +36,12 @@ type Card {
 }
 
 type Category {
-  id: ID!
+  id: ID! @unique
   name: String!
 }
 
 type Money {
-  amount: Double!
+  amount: Float!
   currency: Currency!
 }
 
