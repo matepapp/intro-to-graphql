@@ -14,7 +14,14 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
   U[keyof U];
 
 export interface Exists {
-  user: (where?: UserWhereInput) => Promise<boolean>;
+  account: (where?: AccountWhereInput) => Promise<boolean>;
+  card: (where?: CardWhereInput) => Promise<boolean>;
+  category: (where?: CategoryWhereInput) => Promise<boolean>;
+  money: (where?: MoneyWhereInput) => Promise<boolean>;
+  transaction: (where?: TransactionWhereInput) => Promise<boolean>;
+  transactionPartner: (
+    where?: TransactionPartnerWhereInput
+  ) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -36,51 +43,253 @@ export interface Prisma {
    * Queries
    */
 
-  user: (where: UserWhereUniqueInput) => UserPromise;
-  users: (
+  account: (where: AccountWhereUniqueInput) => AccountPromise;
+  accounts: (
     args?: {
-      where?: UserWhereInput;
-      orderBy?: UserOrderByInput;
+      where?: AccountWhereInput;
+      orderBy?: AccountOrderByInput;
       skip?: Int;
       after?: String;
       before?: String;
       first?: Int;
       last?: Int;
     }
-  ) => FragmentableArray<User>;
-  usersConnection: (
+  ) => FragmentableArray<Account>;
+  accountsConnection: (
     args?: {
-      where?: UserWhereInput;
-      orderBy?: UserOrderByInput;
+      where?: AccountWhereInput;
+      orderBy?: AccountOrderByInput;
       skip?: Int;
       after?: String;
       before?: String;
       first?: Int;
       last?: Int;
     }
-  ) => UserConnectionPromise;
+  ) => AccountConnectionPromise;
+  card: (where: CardWhereUniqueInput) => CardPromise;
+  cards: (
+    args?: {
+      where?: CardWhereInput;
+      orderBy?: CardOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Card>;
+  cardsConnection: (
+    args?: {
+      where?: CardWhereInput;
+      orderBy?: CardOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => CardConnectionPromise;
+  category: (where: CategoryWhereUniqueInput) => CategoryPromise;
+  categories: (
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Category>;
+  categoriesConnection: (
+    args?: {
+      where?: CategoryWhereInput;
+      orderBy?: CategoryOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => CategoryConnectionPromise;
+  moneys: (
+    args?: {
+      where?: MoneyWhereInput;
+      orderBy?: MoneyOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Money>;
+  moneysConnection: (
+    args?: {
+      where?: MoneyWhereInput;
+      orderBy?: MoneyOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => MoneyConnectionPromise;
+  transaction: (where: TransactionWhereUniqueInput) => TransactionPromise;
+  transactions: (
+    args?: {
+      where?: TransactionWhereInput;
+      orderBy?: TransactionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<Transaction>;
+  transactionsConnection: (
+    args?: {
+      where?: TransactionWhereInput;
+      orderBy?: TransactionOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => TransactionConnectionPromise;
+  transactionPartner: (
+    where: TransactionPartnerWhereUniqueInput
+  ) => TransactionPartnerPromise;
+  transactionPartners: (
+    args?: {
+      where?: TransactionPartnerWhereInput;
+      orderBy?: TransactionPartnerOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<TransactionPartner>;
+  transactionPartnersConnection: (
+    args?: {
+      where?: TransactionPartnerWhereInput;
+      orderBy?: TransactionPartnerOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => TransactionPartnerConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
    * Mutations
    */
 
-  createUser: (data: UserCreateInput) => UserPromise;
-  updateUser: (
-    args: { data: UserUpdateInput; where: UserWhereUniqueInput }
-  ) => UserPromise;
-  updateManyUsers: (
-    args: { data: UserUpdateManyMutationInput; where?: UserWhereInput }
+  createAccount: (data: AccountCreateInput) => AccountPromise;
+  updateAccount: (
+    args: { data: AccountUpdateInput; where: AccountWhereUniqueInput }
+  ) => AccountPromise;
+  updateManyAccounts: (
+    args: { data: AccountUpdateManyMutationInput; where?: AccountWhereInput }
   ) => BatchPayloadPromise;
-  upsertUser: (
+  upsertAccount: (
     args: {
-      where: UserWhereUniqueInput;
-      create: UserCreateInput;
-      update: UserUpdateInput;
+      where: AccountWhereUniqueInput;
+      create: AccountCreateInput;
+      update: AccountUpdateInput;
     }
-  ) => UserPromise;
-  deleteUser: (where: UserWhereUniqueInput) => UserPromise;
-  deleteManyUsers: (where?: UserWhereInput) => BatchPayloadPromise;
+  ) => AccountPromise;
+  deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise;
+  deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise;
+  createCard: (data: CardCreateInput) => CardPromise;
+  updateCard: (
+    args: { data: CardUpdateInput; where: CardWhereUniqueInput }
+  ) => CardPromise;
+  updateManyCards: (
+    args: { data: CardUpdateManyMutationInput; where?: CardWhereInput }
+  ) => BatchPayloadPromise;
+  upsertCard: (
+    args: {
+      where: CardWhereUniqueInput;
+      create: CardCreateInput;
+      update: CardUpdateInput;
+    }
+  ) => CardPromise;
+  deleteCard: (where: CardWhereUniqueInput) => CardPromise;
+  deleteManyCards: (where?: CardWhereInput) => BatchPayloadPromise;
+  createCategory: (data: CategoryCreateInput) => CategoryPromise;
+  updateCategory: (
+    args: { data: CategoryUpdateInput; where: CategoryWhereUniqueInput }
+  ) => CategoryPromise;
+  updateManyCategories: (
+    args: { data: CategoryUpdateManyMutationInput; where?: CategoryWhereInput }
+  ) => BatchPayloadPromise;
+  upsertCategory: (
+    args: {
+      where: CategoryWhereUniqueInput;
+      create: CategoryCreateInput;
+      update: CategoryUpdateInput;
+    }
+  ) => CategoryPromise;
+  deleteCategory: (where: CategoryWhereUniqueInput) => CategoryPromise;
+  deleteManyCategories: (where?: CategoryWhereInput) => BatchPayloadPromise;
+  createMoney: (data: MoneyCreateInput) => MoneyPromise;
+  updateManyMoneys: (
+    args: { data: MoneyUpdateManyMutationInput; where?: MoneyWhereInput }
+  ) => BatchPayloadPromise;
+  deleteManyMoneys: (where?: MoneyWhereInput) => BatchPayloadPromise;
+  createTransaction: (data: TransactionCreateInput) => TransactionPromise;
+  updateTransaction: (
+    args: { data: TransactionUpdateInput; where: TransactionWhereUniqueInput }
+  ) => TransactionPromise;
+  updateManyTransactions: (
+    args: {
+      data: TransactionUpdateManyMutationInput;
+      where?: TransactionWhereInput;
+    }
+  ) => BatchPayloadPromise;
+  upsertTransaction: (
+    args: {
+      where: TransactionWhereUniqueInput;
+      create: TransactionCreateInput;
+      update: TransactionUpdateInput;
+    }
+  ) => TransactionPromise;
+  deleteTransaction: (where: TransactionWhereUniqueInput) => TransactionPromise;
+  deleteManyTransactions: (
+    where?: TransactionWhereInput
+  ) => BatchPayloadPromise;
+  createTransactionPartner: (
+    data: TransactionPartnerCreateInput
+  ) => TransactionPartnerPromise;
+  updateTransactionPartner: (
+    args: {
+      data: TransactionPartnerUpdateInput;
+      where: TransactionPartnerWhereUniqueInput;
+    }
+  ) => TransactionPartnerPromise;
+  updateManyTransactionPartners: (
+    args: {
+      data: TransactionPartnerUpdateManyMutationInput;
+      where?: TransactionPartnerWhereInput;
+    }
+  ) => BatchPayloadPromise;
+  upsertTransactionPartner: (
+    args: {
+      where: TransactionPartnerWhereUniqueInput;
+      create: TransactionPartnerCreateInput;
+      update: TransactionPartnerUpdateInput;
+    }
+  ) => TransactionPartnerPromise;
+  deleteTransactionPartner: (
+    where: TransactionPartnerWhereUniqueInput
+  ) => TransactionPartnerPromise;
+  deleteManyTransactionPartners: (
+    where?: TransactionPartnerWhereInput
+  ) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -90,9 +299,24 @@ export interface Prisma {
 }
 
 export interface Subscription {
-  user: (
-    where?: UserSubscriptionWhereInput
-  ) => UserSubscriptionPayloadSubscription;
+  account: (
+    where?: AccountSubscriptionWhereInput
+  ) => AccountSubscriptionPayloadSubscription;
+  card: (
+    where?: CardSubscriptionWhereInput
+  ) => CardSubscriptionPayloadSubscription;
+  category: (
+    where?: CategorySubscriptionWhereInput
+  ) => CategorySubscriptionPayloadSubscription;
+  money: (
+    where?: MoneySubscriptionWhereInput
+  ) => MoneySubscriptionPayloadSubscription;
+  transaction: (
+    where?: TransactionSubscriptionWhereInput
+  ) => TransactionSubscriptionPayloadSubscription;
+  transactionPartner: (
+    where?: TransactionPartnerSubscriptionWhereInput
+  ) => TransactionPartnerSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -103,7 +327,59 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type UserOrderByInput =
+export type TransactionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "number_ASC"
+  | "number_DESC"
+  | "date_ASC"
+  | "date_DESC"
+  | "bookingDate_ASC"
+  | "bookingDate_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type CardOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "number_ASC"
+  | "number_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "holderName_ASC"
+  | "holderName_DESC"
+  | "expiry_ASC"
+  | "expiry_DESC"
+  | "cvc_ASC"
+  | "cvc_DESC"
+  | "limit_ASC"
+  | "limit_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type AccountOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "number_ASC"
+  | "number_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "currency_ASC"
+  | "currency_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type CategoryOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -113,21 +389,223 @@ export type UserOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
+export type MoneyOrderByInput =
+  | "amount_ASC"
+  | "amount_DESC"
+  | "currency_ASC"
+  | "currency_DESC"
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type TransactionStatus =
+  | "IN_PROGRESS"
+  | "REJECTED"
+  | "FUTURE"
+  | "SUCCESSFUL";
+
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
-export interface UserCreateInput {
+export type Currency =
+  | "EUR"
+  | "USD"
+  | "GBP"
+  | "AUD"
+  | "BGN"
+  | "CAD"
+  | "CHF"
+  | "CNY"
+  | "CZK"
+  | "DKK"
+  | "HRK"
+  | "HUF"
+  | "JPY"
+  | "NOK"
+  | "PLN"
+  | "RON"
+  | "RSD"
+  | "RUB"
+  | "SEK"
+  | "TRY"
+  | "UAH"
+  | "ZAR"
+  | "MXN";
+
+export type AccountType = "SAVINGS" | "CREDIT" | "WEBCARD" | "CURRENT";
+
+export type TransactionPartnerOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "address_ASC"
+  | "address_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export interface CardUpdateWithWhereUniqueWithoutAccountInput {
+  where: CardWhereUniqueInput;
+  data: CardUpdateWithoutAccountDataInput;
+}
+
+export type AccountWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  number?: String;
+}>;
+
+export interface CardCreateOneInput {
+  create?: CardCreateInput;
+  connect?: CardWhereUniqueInput;
+}
+
+export interface CategoryUpdateInput {
+  name?: String;
+}
+
+export interface AccountCreateOneInput {
+  create?: AccountCreateInput;
+  connect?: AccountWhereUniqueInput;
+}
+
+export interface AccountUpdateManyMutationInput {
+  number?: String;
+  name?: String;
+  type?: AccountType;
+  currency?: Currency;
+}
+
+export interface TransactionPartnerCreateInput {
   name: String;
+  address: String;
 }
 
-export interface UserUpdateInput {
+export interface AccountWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  number?: String;
+  number_not?: String;
+  number_in?: String[] | String;
+  number_not_in?: String[] | String;
+  number_lt?: String;
+  number_lte?: String;
+  number_gt?: String;
+  number_gte?: String;
+  number_contains?: String;
+  number_not_contains?: String;
+  number_starts_with?: String;
+  number_not_starts_with?: String;
+  number_ends_with?: String;
+  number_not_ends_with?: String;
   name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  type?: AccountType;
+  type_not?: AccountType;
+  type_in?: AccountType[] | AccountType;
+  type_not_in?: AccountType[] | AccountType;
+  currency?: Currency;
+  currency_not?: Currency;
+  currency_in?: Currency[] | Currency;
+  currency_not_in?: Currency[] | Currency;
+  balance?: MoneyWhereInput;
+  bookedTransactions?: MoneyWhereInput;
+  cards_every?: CardWhereInput;
+  cards_some?: CardWhereInput;
+  cards_none?: CardWhereInput;
+  AND?: AccountWhereInput[] | AccountWhereInput;
+  OR?: AccountWhereInput[] | AccountWhereInput;
+  NOT?: AccountWhereInput[] | AccountWhereInput;
 }
 
-export interface UserUpdateManyMutationInput {
+export interface TransactionPartnerCreateOneInput {
+  create?: TransactionPartnerCreateInput;
+  connect?: TransactionPartnerWhereUniqueInput;
+}
+
+export interface MoneySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: MoneyWhereInput;
+  AND?: MoneySubscriptionWhereInput[] | MoneySubscriptionWhereInput;
+  OR?: MoneySubscriptionWhereInput[] | MoneySubscriptionWhereInput;
+  NOT?: MoneySubscriptionWhereInput[] | MoneySubscriptionWhereInput;
+}
+
+export interface CardSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CardWhereInput;
+  AND?: CardSubscriptionWhereInput[] | CardSubscriptionWhereInput;
+  OR?: CardSubscriptionWhereInput[] | CardSubscriptionWhereInput;
+  NOT?: CardSubscriptionWhereInput[] | CardSubscriptionWhereInput;
+}
+
+export type CardWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  number?: String;
+}>;
+
+export interface AccountCreateInput {
+  number: String;
+  name: String;
+  type: AccountType;
+  currency: Currency;
+  balance: MoneyCreateOneInput;
+  bookedTransactions?: MoneyCreateOneInput;
+  cards?: CardCreateManyWithoutAccountInput;
+}
+
+export interface TransactionPartnerUpdateInput {
   name?: String;
+  address?: String;
 }
 
-export interface UserWhereInput {
+export interface MoneyCreateOneInput {
+  create?: MoneyCreateInput;
+}
+
+export type CategoryWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface MoneyCreateInput {
+  amount: Float;
+  currency: Currency;
+}
+
+export interface CategoryWhereInput {
   id?: ID_Input;
   id_not?: ID_Input;
   id_in?: ID_Input[] | ID_Input;
@@ -156,42 +634,831 @@ export interface UserWhereInput {
   name_not_starts_with?: String;
   name_ends_with?: String;
   name_not_ends_with?: String;
-  AND?: UserWhereInput[] | UserWhereInput;
-  OR?: UserWhereInput[] | UserWhereInput;
-  NOT?: UserWhereInput[] | UserWhereInput;
+  AND?: CategoryWhereInput[] | CategoryWhereInput;
+  OR?: CategoryWhereInput[] | CategoryWhereInput;
+  NOT?: CategoryWhereInput[] | CategoryWhereInput;
 }
 
-export interface UserSubscriptionWhereInput {
+export interface CardCreateManyWithoutAccountInput {
+  create?: CardCreateWithoutAccountInput[] | CardCreateWithoutAccountInput;
+  connect?: CardWhereUniqueInput[] | CardWhereUniqueInput;
+}
+
+export interface CategoryUpdateOneInput {
+  create?: CategoryCreateInput;
+  update?: CategoryUpdateDataInput;
+  upsert?: CategoryUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: CategoryWhereUniqueInput;
+}
+
+export interface CardCreateWithoutAccountInput {
+  number: String;
+  name: String;
+  holderName?: String;
+  expiry: DateTimeInput;
+  cvc: String;
+  limit: Int;
+}
+
+export interface CardUpdateDataInput {
+  number?: String;
+  name?: String;
+  holderName?: String;
+  expiry?: DateTimeInput;
+  account?: AccountUpdateOneWithoutCardsInput;
+  cvc?: String;
+  limit?: Int;
+}
+
+export interface AccountUpdateInput {
+  number?: String;
+  name?: String;
+  type?: AccountType;
+  currency?: Currency;
+  balance?: MoneyUpdateOneRequiredInput;
+  bookedTransactions?: MoneyUpdateOneInput;
+  cards?: CardUpdateManyWithoutAccountInput;
+}
+
+export interface CardUpdateOneInput {
+  create?: CardCreateInput;
+  update?: CardUpdateDataInput;
+  upsert?: CardUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: CardWhereUniqueInput;
+}
+
+export interface MoneyUpdateOneRequiredInput {
+  create?: MoneyCreateInput;
+  update?: MoneyUpdateDataInput;
+  upsert?: MoneyUpsertNestedInput;
+}
+
+export interface AccountUpsertNestedInput {
+  update: AccountUpdateDataInput;
+  create: AccountCreateInput;
+}
+
+export interface MoneyUpdateDataInput {
+  amount?: Float;
+  currency?: Currency;
+}
+
+export interface AccountUpdateDataInput {
+  number?: String;
+  name?: String;
+  type?: AccountType;
+  currency?: Currency;
+  balance?: MoneyUpdateOneRequiredInput;
+  bookedTransactions?: MoneyUpdateOneInput;
+  cards?: CardUpdateManyWithoutAccountInput;
+}
+
+export interface MoneyUpsertNestedInput {
+  update: MoneyUpdateDataInput;
+  create: MoneyCreateInput;
+}
+
+export interface TransactionPartnerUpsertNestedInput {
+  update: TransactionPartnerUpdateDataInput;
+  create: TransactionPartnerCreateInput;
+}
+
+export interface MoneyUpdateOneInput {
+  create?: MoneyCreateInput;
+  update?: MoneyUpdateDataInput;
+  upsert?: MoneyUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+}
+
+export interface TransactionPartnerWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  address?: String;
+  address_not?: String;
+  address_in?: String[] | String;
+  address_not_in?: String[] | String;
+  address_lt?: String;
+  address_lte?: String;
+  address_gt?: String;
+  address_gte?: String;
+  address_contains?: String;
+  address_not_contains?: String;
+  address_starts_with?: String;
+  address_not_starts_with?: String;
+  address_ends_with?: String;
+  address_not_ends_with?: String;
+  AND?: TransactionPartnerWhereInput[] | TransactionPartnerWhereInput;
+  OR?: TransactionPartnerWhereInput[] | TransactionPartnerWhereInput;
+  NOT?: TransactionPartnerWhereInput[] | TransactionPartnerWhereInput;
+}
+
+export interface CardUpdateManyWithoutAccountInput {
+  create?: CardCreateWithoutAccountInput[] | CardCreateWithoutAccountInput;
+  delete?: CardWhereUniqueInput[] | CardWhereUniqueInput;
+  connect?: CardWhereUniqueInput[] | CardWhereUniqueInput;
+  disconnect?: CardWhereUniqueInput[] | CardWhereUniqueInput;
+  update?:
+    | CardUpdateWithWhereUniqueWithoutAccountInput[]
+    | CardUpdateWithWhereUniqueWithoutAccountInput;
+  upsert?:
+    | CardUpsertWithWhereUniqueWithoutAccountInput[]
+    | CardUpsertWithWhereUniqueWithoutAccountInput;
+  deleteMany?: CardScalarWhereInput[] | CardScalarWhereInput;
+  updateMany?:
+    | CardUpdateManyWithWhereNestedInput[]
+    | CardUpdateManyWithWhereNestedInput;
+}
+
+export interface TransactionPartnerUpdateOneInput {
+  create?: TransactionPartnerCreateInput;
+  update?: TransactionPartnerUpdateDataInput;
+  upsert?: TransactionPartnerUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: TransactionPartnerWhereUniqueInput;
+}
+
+export interface TransactionCreateInput {
+  number: String;
+  date: DateTimeInput;
+  bookingDate?: DateTimeInput;
+  amount: MoneyCreateOneInput;
+  originalAmount?: MoneyCreateOneInput;
+  status: TransactionStatus;
+  partner?: TransactionPartnerCreateOneInput;
+  sourceAccount?: AccountCreateOneInput;
+  targetAccount: AccountCreateOneInput;
+  card?: CardCreateOneInput;
+  category?: CategoryCreateOneInput;
+}
+
+export interface CategoryCreateOneInput {
+  create?: CategoryCreateInput;
+  connect?: CategoryWhereUniqueInput;
+}
+
+export interface CardUpdateWithoutAccountDataInput {
+  number?: String;
+  name?: String;
+  holderName?: String;
+  expiry?: DateTimeInput;
+  cvc?: String;
+  limit?: Int;
+}
+
+export interface TransactionPartnerSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
   updatedFields_contains_every?: String[] | String;
   updatedFields_contains_some?: String[] | String;
-  node?: UserWhereInput;
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput;
+  node?: TransactionPartnerWhereInput;
+  AND?:
+    | TransactionPartnerSubscriptionWhereInput[]
+    | TransactionPartnerSubscriptionWhereInput;
+  OR?:
+    | TransactionPartnerSubscriptionWhereInput[]
+    | TransactionPartnerSubscriptionWhereInput;
+  NOT?:
+    | TransactionPartnerSubscriptionWhereInput[]
+    | TransactionPartnerSubscriptionWhereInput;
 }
 
-export type UserWhereUniqueInput = AtLeastOne<{
+export interface CardUpsertWithWhereUniqueWithoutAccountInput {
+  where: CardWhereUniqueInput;
+  update: CardUpdateWithoutAccountDataInput;
+  create: CardCreateWithoutAccountInput;
+}
+
+export interface CategorySubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: CategoryWhereInput;
+  AND?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
+  OR?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
+  NOT?: CategorySubscriptionWhereInput[] | CategorySubscriptionWhereInput;
+}
+
+export interface CardScalarWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  number?: String;
+  number_not?: String;
+  number_in?: String[] | String;
+  number_not_in?: String[] | String;
+  number_lt?: String;
+  number_lte?: String;
+  number_gt?: String;
+  number_gte?: String;
+  number_contains?: String;
+  number_not_contains?: String;
+  number_starts_with?: String;
+  number_not_starts_with?: String;
+  number_ends_with?: String;
+  number_not_ends_with?: String;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  holderName?: String;
+  holderName_not?: String;
+  holderName_in?: String[] | String;
+  holderName_not_in?: String[] | String;
+  holderName_lt?: String;
+  holderName_lte?: String;
+  holderName_gt?: String;
+  holderName_gte?: String;
+  holderName_contains?: String;
+  holderName_not_contains?: String;
+  holderName_starts_with?: String;
+  holderName_not_starts_with?: String;
+  holderName_ends_with?: String;
+  holderName_not_ends_with?: String;
+  expiry?: DateTimeInput;
+  expiry_not?: DateTimeInput;
+  expiry_in?: DateTimeInput[] | DateTimeInput;
+  expiry_not_in?: DateTimeInput[] | DateTimeInput;
+  expiry_lt?: DateTimeInput;
+  expiry_lte?: DateTimeInput;
+  expiry_gt?: DateTimeInput;
+  expiry_gte?: DateTimeInput;
+  cvc?: String;
+  cvc_not?: String;
+  cvc_in?: String[] | String;
+  cvc_not_in?: String[] | String;
+  cvc_lt?: String;
+  cvc_lte?: String;
+  cvc_gt?: String;
+  cvc_gte?: String;
+  cvc_contains?: String;
+  cvc_not_contains?: String;
+  cvc_starts_with?: String;
+  cvc_not_starts_with?: String;
+  cvc_ends_with?: String;
+  cvc_not_ends_with?: String;
+  limit?: Int;
+  limit_not?: Int;
+  limit_in?: Int[] | Int;
+  limit_not_in?: Int[] | Int;
+  limit_lt?: Int;
+  limit_lte?: Int;
+  limit_gt?: Int;
+  limit_gte?: Int;
+  AND?: CardScalarWhereInput[] | CardScalarWhereInput;
+  OR?: CardScalarWhereInput[] | CardScalarWhereInput;
+  NOT?: CardScalarWhereInput[] | CardScalarWhereInput;
+}
+
+export interface TransactionPartnerUpdateManyMutationInput {
+  name?: String;
+  address?: String;
+}
+
+export interface CardUpdateManyWithWhereNestedInput {
+  where: CardScalarWhereInput;
+  data: CardUpdateManyDataInput;
+}
+
+export interface CategoryUpsertNestedInput {
+  update: CategoryUpdateDataInput;
+  create: CategoryCreateInput;
+}
+
+export interface CardUpdateManyDataInput {
+  number?: String;
+  name?: String;
+  holderName?: String;
+  expiry?: DateTimeInput;
+  cvc?: String;
+  limit?: Int;
+}
+
+export interface CardUpsertNestedInput {
+  update: CardUpdateDataInput;
+  create: CardCreateInput;
+}
+
+export interface MoneyWhereInput {
+  amount?: Float;
+  amount_not?: Float;
+  amount_in?: Float[] | Float;
+  amount_not_in?: Float[] | Float;
+  amount_lt?: Float;
+  amount_lte?: Float;
+  amount_gt?: Float;
+  amount_gte?: Float;
+  currency?: Currency;
+  currency_not?: Currency;
+  currency_in?: Currency[] | Currency;
+  currency_not_in?: Currency[] | Currency;
+  AND?: MoneyWhereInput[] | MoneyWhereInput;
+  OR?: MoneyWhereInput[] | MoneyWhereInput;
+  NOT?: MoneyWhereInput[] | MoneyWhereInput;
+}
+
+export interface AccountUpdateOneRequiredInput {
+  create?: AccountCreateInput;
+  update?: AccountUpdateDataInput;
+  upsert?: AccountUpsertNestedInput;
+  connect?: AccountWhereUniqueInput;
+}
+
+export interface MoneyUpdateManyMutationInput {
+  amount?: Float;
+  currency?: Currency;
+}
+
+export interface AccountUpdateOneInput {
+  create?: AccountCreateInput;
+  update?: AccountUpdateDataInput;
+  upsert?: AccountUpsertNestedInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: AccountWhereUniqueInput;
+}
+
+export interface CategoryUpdateManyMutationInput {
+  name?: String;
+}
+
+export interface TransactionPartnerUpdateDataInput {
+  name?: String;
+  address?: String;
+}
+
+export interface CardCreateInput {
+  number: String;
+  name: String;
+  holderName?: String;
+  expiry: DateTimeInput;
+  account?: AccountCreateOneWithoutCardsInput;
+  cvc: String;
+  limit: Int;
+}
+
+export type TransactionPartnerWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
 }>;
+
+export interface AccountCreateOneWithoutCardsInput {
+  create?: AccountCreateWithoutCardsInput;
+  connect?: AccountWhereUniqueInput;
+}
+
+export interface AccountSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: AccountWhereInput;
+  AND?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+  OR?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+  NOT?: AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput;
+}
+
+export interface AccountCreateWithoutCardsInput {
+  number: String;
+  name: String;
+  type: AccountType;
+  currency: Currency;
+  balance: MoneyCreateOneInput;
+  bookedTransactions?: MoneyCreateOneInput;
+}
+
+export interface CategoryUpdateDataInput {
+  name?: String;
+}
+
+export interface CardUpdateInput {
+  number?: String;
+  name?: String;
+  holderName?: String;
+  expiry?: DateTimeInput;
+  account?: AccountUpdateOneWithoutCardsInput;
+  cvc?: String;
+  limit?: Int;
+}
+
+export type TransactionWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+  number?: String;
+}>;
+
+export interface AccountUpdateOneWithoutCardsInput {
+  create?: AccountCreateWithoutCardsInput;
+  update?: AccountUpdateWithoutCardsDataInput;
+  upsert?: AccountUpsertWithoutCardsInput;
+  delete?: Boolean;
+  disconnect?: Boolean;
+  connect?: AccountWhereUniqueInput;
+}
+
+export interface TransactionUpdateInput {
+  number?: String;
+  date?: DateTimeInput;
+  bookingDate?: DateTimeInput;
+  amount?: MoneyUpdateOneRequiredInput;
+  originalAmount?: MoneyUpdateOneInput;
+  status?: TransactionStatus;
+  partner?: TransactionPartnerUpdateOneInput;
+  sourceAccount?: AccountUpdateOneInput;
+  targetAccount?: AccountUpdateOneRequiredInput;
+  card?: CardUpdateOneInput;
+  category?: CategoryUpdateOneInput;
+}
+
+export interface CategoryCreateInput {
+  name: String;
+}
+
+export interface CardUpdateManyMutationInput {
+  number?: String;
+  name?: String;
+  holderName?: String;
+  expiry?: DateTimeInput;
+  cvc?: String;
+  limit?: Int;
+}
+
+export interface AccountUpsertWithoutCardsInput {
+  update: AccountUpdateWithoutCardsDataInput;
+  create: AccountCreateWithoutCardsInput;
+}
+
+export interface AccountUpdateWithoutCardsDataInput {
+  number?: String;
+  name?: String;
+  type?: AccountType;
+  currency?: Currency;
+  balance?: MoneyUpdateOneRequiredInput;
+  bookedTransactions?: MoneyUpdateOneInput;
+}
+
+export interface TransactionSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: TransactionWhereInput;
+  AND?: TransactionSubscriptionWhereInput[] | TransactionSubscriptionWhereInput;
+  OR?: TransactionSubscriptionWhereInput[] | TransactionSubscriptionWhereInput;
+  NOT?: TransactionSubscriptionWhereInput[] | TransactionSubscriptionWhereInput;
+}
+
+export interface TransactionWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  number?: String;
+  number_not?: String;
+  number_in?: String[] | String;
+  number_not_in?: String[] | String;
+  number_lt?: String;
+  number_lte?: String;
+  number_gt?: String;
+  number_gte?: String;
+  number_contains?: String;
+  number_not_contains?: String;
+  number_starts_with?: String;
+  number_not_starts_with?: String;
+  number_ends_with?: String;
+  number_not_ends_with?: String;
+  date?: DateTimeInput;
+  date_not?: DateTimeInput;
+  date_in?: DateTimeInput[] | DateTimeInput;
+  date_not_in?: DateTimeInput[] | DateTimeInput;
+  date_lt?: DateTimeInput;
+  date_lte?: DateTimeInput;
+  date_gt?: DateTimeInput;
+  date_gte?: DateTimeInput;
+  bookingDate?: DateTimeInput;
+  bookingDate_not?: DateTimeInput;
+  bookingDate_in?: DateTimeInput[] | DateTimeInput;
+  bookingDate_not_in?: DateTimeInput[] | DateTimeInput;
+  bookingDate_lt?: DateTimeInput;
+  bookingDate_lte?: DateTimeInput;
+  bookingDate_gt?: DateTimeInput;
+  bookingDate_gte?: DateTimeInput;
+  amount?: MoneyWhereInput;
+  originalAmount?: MoneyWhereInput;
+  status?: TransactionStatus;
+  status_not?: TransactionStatus;
+  status_in?: TransactionStatus[] | TransactionStatus;
+  status_not_in?: TransactionStatus[] | TransactionStatus;
+  partner?: TransactionPartnerWhereInput;
+  sourceAccount?: AccountWhereInput;
+  targetAccount?: AccountWhereInput;
+  card?: CardWhereInput;
+  category?: CategoryWhereInput;
+  AND?: TransactionWhereInput[] | TransactionWhereInput;
+  OR?: TransactionWhereInput[] | TransactionWhereInput;
+  NOT?: TransactionWhereInput[] | TransactionWhereInput;
+}
+
+export interface CardWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  number?: String;
+  number_not?: String;
+  number_in?: String[] | String;
+  number_not_in?: String[] | String;
+  number_lt?: String;
+  number_lte?: String;
+  number_gt?: String;
+  number_gte?: String;
+  number_contains?: String;
+  number_not_contains?: String;
+  number_starts_with?: String;
+  number_not_starts_with?: String;
+  number_ends_with?: String;
+  number_not_ends_with?: String;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
+  holderName?: String;
+  holderName_not?: String;
+  holderName_in?: String[] | String;
+  holderName_not_in?: String[] | String;
+  holderName_lt?: String;
+  holderName_lte?: String;
+  holderName_gt?: String;
+  holderName_gte?: String;
+  holderName_contains?: String;
+  holderName_not_contains?: String;
+  holderName_starts_with?: String;
+  holderName_not_starts_with?: String;
+  holderName_ends_with?: String;
+  holderName_not_ends_with?: String;
+  expiry?: DateTimeInput;
+  expiry_not?: DateTimeInput;
+  expiry_in?: DateTimeInput[] | DateTimeInput;
+  expiry_not_in?: DateTimeInput[] | DateTimeInput;
+  expiry_lt?: DateTimeInput;
+  expiry_lte?: DateTimeInput;
+  expiry_gt?: DateTimeInput;
+  expiry_gte?: DateTimeInput;
+  account?: AccountWhereInput;
+  cvc?: String;
+  cvc_not?: String;
+  cvc_in?: String[] | String;
+  cvc_not_in?: String[] | String;
+  cvc_lt?: String;
+  cvc_lte?: String;
+  cvc_gt?: String;
+  cvc_gte?: String;
+  cvc_contains?: String;
+  cvc_not_contains?: String;
+  cvc_starts_with?: String;
+  cvc_not_starts_with?: String;
+  cvc_ends_with?: String;
+  cvc_not_ends_with?: String;
+  limit?: Int;
+  limit_not?: Int;
+  limit_in?: Int[] | Int;
+  limit_not_in?: Int[] | Int;
+  limit_lt?: Int;
+  limit_lte?: Int;
+  limit_gt?: Int;
+  limit_gte?: Int;
+  AND?: CardWhereInput[] | CardWhereInput;
+  OR?: CardWhereInput[] | CardWhereInput;
+  NOT?: CardWhereInput[] | CardWhereInput;
+}
+
+export interface TransactionUpdateManyMutationInput {
+  number?: String;
+  date?: DateTimeInput;
+  bookingDate?: DateTimeInput;
+  status?: TransactionStatus;
+}
 
 export interface NodeNode {
   id: ID_Output;
 }
 
-export interface AggregateUser {
+export interface TransactionPartnerPreviousValues {
+  id: ID_Output;
+  name: String;
+  address: String;
+}
+
+export interface TransactionPartnerPreviousValuesPromise
+  extends Promise<TransactionPartnerPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  address: () => Promise<String>;
+}
+
+export interface TransactionPartnerPreviousValuesSubscription
+  extends Promise<AsyncIterator<TransactionPartnerPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  address: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CategoryConnection {
+  pageInfo: PageInfo;
+  edges: CategoryEdge[];
+}
+
+export interface CategoryConnectionPromise
+  extends Promise<CategoryConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CategoryEdge>>() => T;
+  aggregate: <T = AggregateCategoryPromise>() => T;
+}
+
+export interface CategoryConnectionSubscription
+  extends Promise<AsyncIterator<CategoryConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CategoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCategorySubscription>() => T;
+}
+
+export interface MoneyPreviousValues {
+  amount: Float;
+  currency: Currency;
+}
+
+export interface MoneyPreviousValuesPromise
+  extends Promise<MoneyPreviousValues>,
+    Fragmentable {
+  amount: () => Promise<Float>;
+  currency: () => Promise<Currency>;
+}
+
+export interface MoneyPreviousValuesSubscription
+  extends Promise<AsyncIterator<MoneyPreviousValues>>,
+    Fragmentable {
+  amount: () => Promise<AsyncIterator<Float>>;
+  currency: () => Promise<AsyncIterator<Currency>>;
+}
+
+export interface TransactionPreviousValues {
+  id: ID_Output;
+  number: String;
+  date: DateTimeOutput;
+  bookingDate?: DateTimeOutput;
+  status: TransactionStatus;
+}
+
+export interface TransactionPreviousValuesPromise
+  extends Promise<TransactionPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  date: () => Promise<DateTimeOutput>;
+  bookingDate: () => Promise<DateTimeOutput>;
+  status: () => Promise<TransactionStatus>;
+}
+
+export interface TransactionPreviousValuesSubscription
+  extends Promise<AsyncIterator<TransactionPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  bookingDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  status: () => Promise<AsyncIterator<TransactionStatus>>;
+}
+
+export interface AggregateCard {
   count: Int;
 }
 
-export interface AggregateUserPromise
-  extends Promise<AggregateUser>,
+export interface AggregateCardPromise
+  extends Promise<AggregateCard>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateUserSubscription
-  extends Promise<AsyncIterator<AggregateUser>>,
+export interface AggregateCardSubscription
+  extends Promise<AsyncIterator<AggregateCard>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Category {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPromise extends Promise<Category>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface CategorySubscription
+  extends Promise<AsyncIterator<Category>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateTransactionPartner {
+  count: Int;
+}
+
+export interface AggregateTransactionPartnerPromise
+  extends Promise<AggregateTransactionPartner>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateTransactionPartnerSubscription
+  extends Promise<AsyncIterator<AggregateTransactionPartner>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -212,103 +1479,542 @@ export interface BatchPayloadSubscription
   count: () => Promise<AsyncIterator<Long>>;
 }
 
-export interface UserPreviousValues {
-  id: ID_Output;
-  name: String;
+export interface TransactionPartnerConnection {
+  pageInfo: PageInfo;
+  edges: TransactionPartnerEdge[];
 }
 
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
+export interface TransactionPartnerConnectionPromise
+  extends Promise<TransactionPartnerConnection>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TransactionPartnerEdge>>() => T;
+  aggregate: <T = AggregateTransactionPartnerPromise>() => T;
 }
 
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
+export interface TransactionPartnerConnectionSubscription
+  extends Promise<AsyncIterator<TransactionPartnerConnection>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<TransactionPartnerEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateTransactionPartnerSubscription>() => T;
 }
 
-export interface UserEdge {
-  node: User;
+export interface CardEdge {
+  node: Card;
   cursor: String;
 }
 
-export interface UserEdgePromise extends Promise<UserEdge>, Fragmentable {
-  node: <T = UserPromise>() => T;
+export interface CardEdgePromise extends Promise<CardEdge>, Fragmentable {
+  node: <T = CardPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface UserEdgeSubscription
-  extends Promise<AsyncIterator<UserEdge>>,
+export interface CardEdgeSubscription
+  extends Promise<AsyncIterator<CardEdge>>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
+  node: <T = CardSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
+export interface AggregateTransaction {
+  count: Int;
 }
 
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
+export interface AggregateTransactionPromise
+  extends Promise<AggregateTransaction>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
+export interface AggregateTransactionSubscription
+  extends Promise<AsyncIterator<AggregateTransaction>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface User {
+export interface CardConnection {
+  pageInfo: PageInfo;
+  edges: CardEdge[];
+}
+
+export interface CardConnectionPromise
+  extends Promise<CardConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CardEdge>>() => T;
+  aggregate: <T = AggregateCardPromise>() => T;
+}
+
+export interface CardConnectionSubscription
+  extends Promise<AsyncIterator<CardConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CardEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCardSubscription>() => T;
+}
+
+export interface TransactionConnection {
+  pageInfo: PageInfo;
+  edges: TransactionEdge[];
+}
+
+export interface TransactionConnectionPromise
+  extends Promise<TransactionConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<TransactionEdge>>() => T;
+  aggregate: <T = AggregateTransactionPromise>() => T;
+}
+
+export interface TransactionConnectionSubscription
+  extends Promise<AsyncIterator<TransactionConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TransactionEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTransactionSubscription>() => T;
+}
+
+export interface AggregateAccount {
+  count: Int;
+}
+
+export interface AggregateAccountPromise
+  extends Promise<AggregateAccount>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateAccountSubscription
+  extends Promise<AsyncIterator<AggregateAccount>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface TransactionPartner {
   id: ID_Output;
   name: String;
+  address: String;
 }
 
-export interface UserPromise extends Promise<User>, Fragmentable {
+export interface TransactionPartnerPromise
+  extends Promise<TransactionPartner>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+  address: () => Promise<String>;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
+export interface TransactionPartnerSubscription
+  extends Promise<AsyncIterator<TransactionPartner>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
+  address: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserConnection {
+export interface TransactionSubscriptionPayload {
+  mutation: MutationType;
+  node: Transaction;
+  updatedFields: String[];
+  previousValues: TransactionPreviousValues;
+}
+
+export interface TransactionSubscriptionPayloadPromise
+  extends Promise<TransactionSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = TransactionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TransactionPreviousValuesPromise>() => T;
+}
+
+export interface TransactionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TransactionSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TransactionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TransactionPreviousValuesSubscription>() => T;
+}
+
+export interface Transaction {
+  id: ID_Output;
+  number: String;
+  date: DateTimeOutput;
+  bookingDate?: DateTimeOutput;
+  status: TransactionStatus;
+}
+
+export interface TransactionPromise extends Promise<Transaction>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  date: () => Promise<DateTimeOutput>;
+  bookingDate: () => Promise<DateTimeOutput>;
+  amount: <T = MoneyPromise>() => T;
+  originalAmount: <T = MoneyPromise>() => T;
+  status: () => Promise<TransactionStatus>;
+  partner: <T = TransactionPartnerPromise>() => T;
+  sourceAccount: <T = AccountPromise>() => T;
+  targetAccount: <T = AccountPromise>() => T;
+  card: <T = CardPromise>() => T;
+  category: <T = CategoryPromise>() => T;
+}
+
+export interface TransactionSubscription
+  extends Promise<AsyncIterator<Transaction>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  date: () => Promise<AsyncIterator<DateTimeOutput>>;
+  bookingDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amount: <T = MoneySubscription>() => T;
+  originalAmount: <T = MoneySubscription>() => T;
+  status: () => Promise<AsyncIterator<TransactionStatus>>;
+  partner: <T = TransactionPartnerSubscription>() => T;
+  sourceAccount: <T = AccountSubscription>() => T;
+  targetAccount: <T = AccountSubscription>() => T;
+  card: <T = CardSubscription>() => T;
+  category: <T = CategorySubscription>() => T;
+}
+
+export interface AccountSubscriptionPayload {
+  mutation: MutationType;
+  node: Account;
+  updatedFields: String[];
+  previousValues: AccountPreviousValues;
+}
+
+export interface AccountSubscriptionPayloadPromise
+  extends Promise<AccountSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AccountPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AccountPreviousValuesPromise>() => T;
+}
+
+export interface AccountSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AccountSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AccountSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AccountPreviousValuesSubscription>() => T;
+}
+
+export interface MoneyEdge {
+  node: Money;
+  cursor: String;
+}
+
+export interface MoneyEdgePromise extends Promise<MoneyEdge>, Fragmentable {
+  node: <T = MoneyPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface MoneyEdgeSubscription
+  extends Promise<AsyncIterator<MoneyEdge>>,
+    Fragmentable {
+  node: <T = MoneySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AccountPreviousValues {
+  id: ID_Output;
+  number: String;
+  name: String;
+  type: AccountType;
+  currency: Currency;
+}
+
+export interface AccountPreviousValuesPromise
+  extends Promise<AccountPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  name: () => Promise<String>;
+  type: () => Promise<AccountType>;
+  currency: () => Promise<Currency>;
+}
+
+export interface AccountPreviousValuesSubscription
+  extends Promise<AsyncIterator<AccountPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<AccountType>>;
+  currency: () => Promise<AsyncIterator<Currency>>;
+}
+
+export interface AggregateCategory {
+  count: Int;
+}
+
+export interface AggregateCategoryPromise
+  extends Promise<AggregateCategory>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateCategorySubscription
+  extends Promise<AsyncIterator<AggregateCategory>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AccountEdge {
+  node: Account;
+  cursor: String;
+}
+
+export interface AccountEdgePromise extends Promise<AccountEdge>, Fragmentable {
+  node: <T = AccountPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AccountEdgeSubscription
+  extends Promise<AsyncIterator<AccountEdge>>,
+    Fragmentable {
+  node: <T = AccountSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface TransactionPartnerSubscriptionPayload {
+  mutation: MutationType;
+  node: TransactionPartner;
+  updatedFields: String[];
+  previousValues: TransactionPartnerPreviousValues;
+}
+
+export interface TransactionPartnerSubscriptionPayloadPromise
+  extends Promise<TransactionPartnerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = TransactionPartnerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = TransactionPartnerPreviousValuesPromise>() => T;
+}
+
+export interface TransactionPartnerSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TransactionPartnerSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = TransactionPartnerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = TransactionPartnerPreviousValuesSubscription>() => T;
+}
+
+export interface CardSubscriptionPayload {
+  mutation: MutationType;
+  node: Card;
+  updatedFields: String[];
+  previousValues: CardPreviousValues;
+}
+
+export interface CardSubscriptionPayloadPromise
+  extends Promise<CardSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CardPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CardPreviousValuesPromise>() => T;
+}
+
+export interface CardSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CardSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CardSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CardPreviousValuesSubscription>() => T;
+}
+
+export interface Account {
+  id: ID_Output;
+  number: String;
+  name: String;
+  type: AccountType;
+  currency: Currency;
+}
+
+export interface AccountPromise extends Promise<Account>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  name: () => Promise<String>;
+  type: () => Promise<AccountType>;
+  currency: () => Promise<Currency>;
+  balance: <T = MoneyPromise>() => T;
+  bookedTransactions: <T = MoneyPromise>() => T;
+  cards: <T = FragmentableArray<Card>>(
+    args?: {
+      where?: CardWhereInput;
+      orderBy?: CardOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface AccountSubscription
+  extends Promise<AsyncIterator<Account>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<AccountType>>;
+  currency: () => Promise<AsyncIterator<Currency>>;
+  balance: <T = MoneySubscription>() => T;
+  bookedTransactions: <T = MoneySubscription>() => T;
+  cards: <T = Promise<AsyncIterator<CardSubscription>>>(
+    args?: {
+      where?: CardWhereInput;
+      orderBy?: CardOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => T;
+}
+
+export interface CardPreviousValues {
+  id: ID_Output;
+  number: String;
+  name: String;
+  holderName?: String;
+  expiry: DateTimeOutput;
+  cvc: String;
+  limit: Int;
+}
+
+export interface CardPreviousValuesPromise
+  extends Promise<CardPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  name: () => Promise<String>;
+  holderName: () => Promise<String>;
+  expiry: () => Promise<DateTimeOutput>;
+  cvc: () => Promise<String>;
+  limit: () => Promise<Int>;
+}
+
+export interface CardPreviousValuesSubscription
+  extends Promise<AsyncIterator<CardPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  holderName: () => Promise<AsyncIterator<String>>;
+  expiry: () => Promise<AsyncIterator<DateTimeOutput>>;
+  cvc: () => Promise<AsyncIterator<String>>;
+  limit: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Money {
+  amount: Float;
+  currency: Currency;
+}
+
+export interface MoneyPromise extends Promise<Money>, Fragmentable {
+  amount: () => Promise<Float>;
+  currency: () => Promise<Currency>;
+}
+
+export interface MoneySubscription
+  extends Promise<AsyncIterator<Money>>,
+    Fragmentable {
+  amount: () => Promise<AsyncIterator<Float>>;
+  currency: () => Promise<AsyncIterator<Currency>>;
+}
+
+export interface AccountConnection {
   pageInfo: PageInfo;
-  edges: UserEdge[];
+  edges: AccountEdge[];
 }
 
-export interface UserConnectionPromise
-  extends Promise<UserConnection>,
+export interface AccountConnectionPromise
+  extends Promise<AccountConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  edges: <T = FragmentableArray<AccountEdge>>() => T;
+  aggregate: <T = AggregateAccountPromise>() => T;
 }
 
-export interface UserConnectionSubscription
-  extends Promise<AsyncIterator<UserConnection>>,
+export interface AccountConnectionSubscription
+  extends Promise<AsyncIterator<AccountConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<AccountEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateAccountSubscription>() => T;
+}
+
+export interface AggregateMoney {
+  count: Int;
+}
+
+export interface AggregateMoneyPromise
+  extends Promise<AggregateMoney>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMoneySubscription
+  extends Promise<AsyncIterator<AggregateMoney>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface CategoryEdge {
+  node: Category;
+  cursor: String;
+}
+
+export interface CategoryEdgePromise
+  extends Promise<CategoryEdge>,
+    Fragmentable {
+  node: <T = CategoryPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CategoryEdgeSubscription
+  extends Promise<AsyncIterator<CategoryEdge>>,
+    Fragmentable {
+  node: <T = CategorySubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MoneySubscriptionPayload {
+  mutation: MutationType;
+  node: Money;
+  updatedFields: String[];
+  previousValues: MoneyPreviousValues;
+}
+
+export interface MoneySubscriptionPayloadPromise
+  extends Promise<MoneySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = MoneyPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = MoneyPreviousValuesPromise>() => T;
+}
+
+export interface MoneySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MoneySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = MoneySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = MoneyPreviousValuesSubscription>() => T;
 }
 
 export interface PageInfo {
@@ -334,10 +2040,147 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
+export interface CategoryPreviousValues {
+  id: ID_Output;
+  name: String;
+}
+
+export interface CategoryPreviousValuesPromise
+  extends Promise<CategoryPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface CategoryPreviousValuesSubscription
+  extends Promise<AsyncIterator<CategoryPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface CategorySubscriptionPayload {
+  mutation: MutationType;
+  node: Category;
+  updatedFields: String[];
+  previousValues: CategoryPreviousValues;
+}
+
+export interface CategorySubscriptionPayloadPromise
+  extends Promise<CategorySubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = CategoryPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CategoryPreviousValuesPromise>() => T;
+}
+
+export interface CategorySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CategorySubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CategorySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CategoryPreviousValuesSubscription>() => T;
+}
+
+export interface TransactionPartnerEdge {
+  node: TransactionPartner;
+  cursor: String;
+}
+
+export interface TransactionPartnerEdgePromise
+  extends Promise<TransactionPartnerEdge>,
+    Fragmentable {
+  node: <T = TransactionPartnerPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TransactionPartnerEdgeSubscription
+  extends Promise<AsyncIterator<TransactionPartnerEdge>>,
+    Fragmentable {
+  node: <T = TransactionPartnerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface MoneyConnection {
+  pageInfo: PageInfo;
+  edges: MoneyEdge[];
+}
+
+export interface MoneyConnectionPromise
+  extends Promise<MoneyConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<MoneyEdge>>() => T;
+  aggregate: <T = AggregateMoneyPromise>() => T;
+}
+
+export interface MoneyConnectionSubscription
+  extends Promise<AsyncIterator<MoneyConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MoneyEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMoneySubscription>() => T;
+}
+
+export interface Card {
+  id: ID_Output;
+  number: String;
+  name: String;
+  holderName?: String;
+  expiry: DateTimeOutput;
+  cvc: String;
+  limit: Int;
+}
+
+export interface CardPromise extends Promise<Card>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<String>;
+  name: () => Promise<String>;
+  holderName: () => Promise<String>;
+  expiry: () => Promise<DateTimeOutput>;
+  account: <T = AccountPromise>() => T;
+  cvc: () => Promise<String>;
+  limit: () => Promise<Int>;
+}
+
+export interface CardSubscription
+  extends Promise<AsyncIterator<Card>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  holderName: () => Promise<AsyncIterator<String>>;
+  expiry: () => Promise<AsyncIterator<DateTimeOutput>>;
+  account: <T = AccountSubscription>() => T;
+  cvc: () => Promise<AsyncIterator<String>>;
+  limit: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface TransactionEdge {
+  node: Transaction;
+  cursor: String;
+}
+
+export interface TransactionEdgePromise
+  extends Promise<TransactionEdge>,
+    Fragmentable {
+  node: <T = TransactionPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface TransactionEdgeSubscription
+  extends Promise<AsyncIterator<TransactionEdge>>,
+    Fragmentable {
+  node: <T = TransactionSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
 /*
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
 */
-export type String = string;
+export type Int = number;
 
 export type Long = string;
 
@@ -348,9 +2191,24 @@ export type ID_Input = string | number;
 export type ID_Output = string;
 
 /*
-The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
 */
-export type Int = number;
+export type Float = number;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
+
+/*
+The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+*/
+export type String = string;
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
@@ -363,7 +2221,47 @@ export type Boolean = boolean;
 
 export const models: Model[] = [
   {
-    name: "User",
+    name: "Account",
+    embedded: false
+  },
+  {
+    name: "AccountType",
+    embedded: false
+  },
+  {
+    name: "Card",
+    embedded: false
+  },
+  {
+    name: "CardStatus",
+    embedded: false
+  },
+  {
+    name: "CardType",
+    embedded: false
+  },
+  {
+    name: "Category",
+    embedded: false
+  },
+  {
+    name: "Currency",
+    embedded: false
+  },
+  {
+    name: "Money",
+    embedded: false
+  },
+  {
+    name: "Transaction",
+    embedded: false
+  },
+  {
+    name: "TransactionPartner",
+    embedded: false
+  },
+  {
+    name: "TransactionStatus",
     embedded: false
   }
 ];

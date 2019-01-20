@@ -1,0 +1,92 @@
+type Account {
+  id: ID!
+  number: String!
+  name: String!
+  type: AccountType!
+  currency: Currency!
+  balance: Money!
+  bookedTransactions: Money
+  cards: [Card!]
+}
+
+type Card {
+  id: ID!
+  number: String!
+  name: String!
+  holderName: String
+  expiry: DateTime!
+  account: Account
+  cvc: String!
+  limit: Int!
+}
+
+type Category {
+  id: ID!
+  name: String!
+}
+
+type Money {
+  amount: Float!
+  currency: Currency!
+}
+
+type Mutation {
+  updateAccountName(number: String!, name: String!): Account
+  updateCardName(number: String!, name: String!): Card
+  deleteCard(number: String!): Card
+  updateCategory(id: ID!, name: String!): Category
+  changeTransactionCategory(number: String!, categoryID: ID!): Transaction
+}
+
+type Query {
+  account(number: String!): Account
+  accounts: [Account]!
+  card(number: String!): Card
+  cards: [Card]!
+  category(id: ID!): Category
+  categories: [Category]!
+  transaction(number: String!): Transaction
+  transactions: [Transaction]!
+}
+
+type Transaction {
+  id: ID!
+  number: String!
+  date: DateTime!
+  bookingDate: DateTime
+  amount: Money!
+  originalAmount: Money
+  status: TransactionStatus!
+  partner: TransactionPartner
+  sourceAccount: Account
+  targetAccount: Account!
+  card: Card
+  category: Category
+}
+
+type TransactionPartner {
+  id: ID!
+  name: String!
+  address: String!
+}
+
+enum TransactionStatus {
+  IN_PROGRESS
+  REJECTED
+  FUTURE
+  SUCCESSFUL
+}
+
+enum AccountType {
+  SAVINGS
+  CREDIT
+  WEBCARD
+  CURRENT
+}
+
+enum Currency {
+  EUR
+  USD
+  GBP
+  HUF
+}

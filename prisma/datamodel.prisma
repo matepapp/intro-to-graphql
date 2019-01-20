@@ -82,24 +82,5 @@ enum Currency {
   EUR
   USD
   GBP
-  AUD
-  BGN
-  CAD
-  CHF
-  CNY
-  CZK
-  DKK
-  HRK
   HUF
-  JPY
-  NOK
-  PLN
-  RON
-  RSD
-  RUB
-  SEK
-  TRY
-  UAH
-  ZAR
-  MXN
 }
