@@ -1,7 +1,6 @@
 {
   "singleQuote": true,
   "printWidth": 100,
-  "parser": "mdx",
   "bracketSpacing": true,
   "tabWidth": 2
 }
