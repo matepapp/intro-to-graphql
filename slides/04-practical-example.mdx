@@ -1,0 +1,155 @@
+import { Split, Invert } from 'mdx-deck/layouts';
+import { Appear } from 'mdx-deck';
+
+# Practical Example 📝
+
+---
+
+export default Split;
+
+![example](/assets/example.png)
+
+<Appear>
+  <p>Call the /transaction endpoint</p>
+  <p>Call the /account endpoint</p>
+  <p>Call the /card endpoint</p>
+  <p>Call the /category endpoint</p>
+  <h2>4 API Calls</h2>
+</Appear>
+
+---
+
+## How would it look like with GraphQL?
+
+---
+
+export default Invert;
+
+# Live demo 💻
+
+![](https://media.giphy.com/media/4bWWKmUnn5E4/giphy.gif)
+
+---
+
+```graphql
+query TrasactionQuery {
+  transaction(where: { number: "ASD01234" }) {
+    number
+    date
+    amount {
+      amount
+      currency
+    }
+    originalAmount {
+      amount
+      currency
+    }
+    partner {
+      name
+      address
+    }
+    targetAccount {
+      name
+      number
+      balance {
+        amount
+        currency
+      }
+    }
+    card {
+      name
+      number
+    }
+    category {
+      id
+      name
+    }
+  }
+}
+----
+*
+1:16 > ~ /transaction
+17:24 > ~ /account
+25:28 > ~ /card
+29:32 > ~ /category
+```
+
+---
+
+```json
+{
+  "data": {
+    "transaction": {
+      "number": "ASD01234",
+      "date": "2017-09-11T00:00:00.000Z",
+      "amount": {
+        "amount": -1200,
+        "currency": "HUF"
+      },
+      "originalAmount": {
+        "amount": -1.52,
+        "currency": "EUR"
+      },
+      "partner": {
+        "name": "Dunkin Donuts",
+        "address": "Vienna, Landstrasse 10."
+      },
+      "targetAccount": {
+        "name": "Bónusz számla",
+        "number": "11111111-22222222-33333333",
+        "balance": {
+          "amount": 236000,
+          "currency": "HUF"
+        }
+      },
+      "card": {
+        "name": "Jani kártyája",
+        "number": "0133-0000-3232-4444"
+      },
+      "category": {
+        "id": "cjr3nx32byuwn0a89sy5rg2e4",
+        "name": "Szórakozás"
+      }
+    }
+  }
+}
+----
+*
+3:17
+18:25
+26:29
+30:33
+```
+
+---
+
+```graphql
+mutation ChangeTransactionCategory {
+  changeTransactionCategory(
+    number: "ASD01234",
+    categoryID: "cjr3nx32byuwn0a89sy5rg2e4"
+  ) {
+    number
+    category {
+      name
+    }
+  }
+}
+----
+*
+```
+
+---
+
+```json
+{
+  "data": {
+    "changeTransactionCategory": {
+      "number": "ASD01234",
+      "category": {
+        "name": "Szórakozás"
+      }
+    }
+  }
+}
+```
