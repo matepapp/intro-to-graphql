@@ -24,9 +24,6 @@ export const theme = {
     backgroundColor: SCColor,
     color: 'white'
   },
-  h3: {
-    textTransform: 'none'
-  },
   link: {
     textDecoration: 'none'
   },

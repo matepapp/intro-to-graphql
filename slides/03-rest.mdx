@@ -1,0 +1,61 @@
+import { Image } from 'mdx-deck';
+
+# Comparing to REST ⚖️
+
+---
+
+## REST(ful)
+
+- Standard for designing web API
+- Interact with HTTP verbs (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)
+- Multiple endpoints
+- Server defined structure
+
+---
+
+## Comparing to GraphQL
+
+- Single endpoint over HTTP
+- Idea of resource
+- Shape of the resource isn't coupled how you retrieve it
+- Traverse from the entry point (`Schema`) to related data
+
+---
+
+## Pain points of REST
+
+---
+
+### Overfetching
+
+**Downloading superfluous data**
+
+✅ _GraphQL - Clients can minimize the amount of data_
+
+---
+
+### Underfetching
+
+**The n+1 request problem**
+
+✅ _GraphQL - Graph traversable data structures_
+
+---
+
+### Fast Product Iterations on the Frontend
+
+**Variety of different frameworks and platforms**
+
+✅ _GraphQL - Each client can access precisely the data it needs without extra work on the server_
+
+---
+
+### Using the wrong HTTP verb
+
+**Fetching data with `POST`?**
+
+✅ _GraphQL - Getting data with `Query`, modifying with `Mutation`_
+
+---
+
+<Image src="https://media.giphy.com/media/xT9KVqOt8xuRYhNpq8/giphy.gif" />
