@@ -4,16 +4,19 @@ import {
 import oceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
 const SCColor = '#ff3000';
+const SCCodeColor = '#faa';
 
 export const theme = {
   ...future,
   font: 'Lato',
+  monospace: '"Source Code Pro", monospace',
   transitionTimingFunction: 'ease-in-out',
   colors: {
     ...future.colors,
     text: 'white',
     background: 'black',
-    link: SCColor
+    link: SCColor,
+    code: SCCodeColor
   },
   h2: {
     textTransform: 'none',

@@ -1,5 +1,4 @@
 import { Split } from 'mdx-deck/layouts';
-import { CodeSurfer } from 'mdx-deck-code-surfer';
 
 # Building blocks 🧱
 
@@ -7,52 +6,25 @@ import { CodeSurfer } from 'mdx-deck-code-surfer';
 
 ## Query
 
-- single endpoint
-- structure of the data is flexible
-- client declares its data needs
+- Single endpoint
+- Structure of the data is flexible
+- Client declares its data needs
 
 ---
 
-```graphql Hello GraphQL
+```graphql Query Spotify user
 query {
-  hello {
-    technology
+  me {
+  	id
+  	email
+  	display_name
+  	country
   }
 }
 ----
-1
-2, 3
-```
-
----
-
-```json Response
-{
-  "data": {
-    "hello": {
-      "technology": "GraphQL",
-    }
-  }
-}
-----
-2
-3, 4
-```
-
----
-
-```graphql Twitter Query with Name and arguments
-query TwitterUserQuery {
-  user(identifier: name, identity: "matepappp") {
-    name
-    description
-    tweets_count
-    created_at
-  }
-}
-----
-1
-2
+*
+1, 8
+2, 7
 3:6
 ```
 
@@ -61,24 +33,270 @@ query TwitterUserQuery {
 ```json Response
 {
   "data": {
-    "user": {
-      "name": "Mate Papp",
-      "description": "javaswift developer @TeamSupercharge",
-      "tweets_count": 4586,
-      "created_at": "Mon Jul 16 14:16:37 +0000 2012"
+    "me": {
+      "id": "11124253812",
+      "email": "matepapp@icloud.com",
+      "display_name": "Mate Papp",
+      "country": "HU"
     }
   }
 }
 ----
-2
-3
+*
+2, 9
+3, 8
 4:7
+```
+
+---
+
+```graphql Query with name, arguments and objects
+query CurrentAccountQuery {
+  account(number: "12345678-87654321-24681012") {
+    name
+    number
+    type
+    currency
+    balance {
+      amount
+      currency
+    }
+    cards {
+      name
+      number
+    }
+  }
+}
+----
+*
+1, 16 > Query's Name
+2, 15 > 'number' argument
+3:6 > Scalar types
+7:10 > Money Object
+11:14 > Array of Card Object
+```
+
+---
+
+```json Response
+{
+  "data": {
+    "account": {
+      "name": "Deviza számla",
+      "number": "12345678-87654321-24681012",
+      "type": "CURRENT",
+      "currency": "EUR",
+      "balance": {
+        "amount": 500,
+        "currency": "EUR"
+      },
+      "cards": [
+        {
+          "name": "Euro kártya",
+          "number": "1111-2222-3333-4444"
+        },
+        {
+          "name": "Társkártya",
+          "number": "9999-8888-7777-6666"
+        }
+      ]
+    }
+  }
+}
+----
+*
+3
+4:7 > Scalar types responses
+6, 7 > Enums
+8:11 > Money response
+12:21 > Array of Card response
 ```
 
 ---
 
 ## Mutation
 
-- single endpoint
-- structure of the data is flexible
-- client declares its data needs
+- `Query` with side effect
+- Any operations that cause writes
+- **C** _(R)_ **U** **D**
+
+---
+
+```graphql Updating a Card's name
+mutation UpdateCardNameMutation {
+  updateCardName(number: "9999-8888-7777-6666" name: "Euro Társkártya") {
+    number
+    name
+    limit
+  }
+}
+----
+*
+1, 7 > 'mutation' keyword is required
+2, 6
+3:5
+```
+
+---
+
+```json
+{
+  "data": {
+    "updateCard": {
+      "number": "9999-8888-7777-6666",
+      "name": "Euro Társkártya",
+      "limit": 600
+    }
+  }
+}
+----
+*
+3:7
+```
+
+---
+
+## Subscription
+
+- Realtime connection to the server
+- Stream of data
+- Wrapper around websockets
+
+---
+
+```graphql
+subscription NewTrasaction {
+  newTrasaction {
+    number
+    date
+  }
+}
+----
+*
+1, 6
+2:5
+```
+
+---
+
+```json
+{
+  "data": {
+    "newTrasaction": {
+      "number": "QWERTY1234",
+      "date": "201902010914"
+    }
+  }
+}
+```
+
+---
+
+## Schema and Schema Definition Language _(SDL)_
+
+- GraphQL's own strongly typed language
+- Schema specifies the capabilities of the API
+- A contract between the server and client
+- Special root types `Query`, `Mutation`, `Subscription`
+
+---
+
+## Scalar types
+
+- Int
+- Float
+- String
+- Boolean
+- ID
+
+---
+
+```graphql Objects
+type Account {
+  id: ID!
+  number: String!
+  name: String!
+  type: AccountType!
+  currency: Currency!
+  balance: Money!
+  bookedTransactions: Money
+  cards: [Card!]
+}
+
+type Card {
+  id: ID!
+  number: String!
+  name: String!
+  holderName: String
+  expiry: DateTime!
+  account: Account
+  cvc: String!
+  limit: Int!
+}
+----
+*
+1:10
+12:21
+```
+
+---
+
+```graphql Enumerations
+enum TransactionStatus {
+  IN_PROGRESS
+  REJECTED
+  FUTURE
+  SUCCESSFUL
+}
+
+enum AccountType {
+  SAVINGS
+  CREDIT
+  WEBCARD
+  CURRENT
+}
+
+enum Currency {
+  EUR
+  USD
+  GBP
+  HUF
+}
+----
+*
+1:6
+8:14
+15:22
+```
+
+---
+
+```graphql Root types
+type Schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  account(number: String!): Account
+  accounts: [Account]!
+  card(number: String!): Card
+  cards: [Card]!
+  category(id: ID!): Category
+  categories: [Category]!
+  transaction(number: String!): Transaction
+  transactions: [Transaction]!
+}
+
+type Mutation {
+  updateAccountName(number: String!, name: String!): Account
+  updateCardName(number: String!, name: String!): Card
+  deleteCard(number: String!): Card
+  updateCategory(id: ID!, name: String!): Category
+  changeTransactionCategory(number: String!, categoryID: ID!): Transaction
+}
+----
+1:4
+6:15
+17:23
+```
