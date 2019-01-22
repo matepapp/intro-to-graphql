@@ -1,7 +1,10 @@
 {
   "private": true,
+  "author": "Mate Papp",
+  "license": "MIT",
   "version": "1.0.0",
-  "description": "Deck created with mdx-deck",
+  "name": "intro-to-graphql",
+  "description": "Intro to GraphQL",
   "scripts": {
     "start": "mdx-deck deck.js",
     "build": "mdx-deck build deck.js && cp -rf favicon dist",
@@ -9,13 +12,9 @@
     "image": "mdx-deck screenshot deck.js",
     "help": "mdx-deck"
   },
-  "keywords": [],
-  "author": "Brent Jackson",
-  "license": "MIT",
   "devDependencies": {
     "grid-styled": "^5.0.2",
-    "mdx-deck": "^1.6.7",
-    "mdx-deck-code-surfer": "^0.5.3"
-  },
-  "name": "intro-to-graphql"
+    "mdx-deck": "^1.8.2",
+    "mdx-deck-code-surfer": "^0.5.5"
+  }
 }
