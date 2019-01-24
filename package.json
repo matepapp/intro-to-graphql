@@ -7,7 +7,7 @@
   "description": "Intro to GraphQL",
   "scripts": {
     "start": "mdx-deck deck.js",
-    "build": "mdx-deck build deck.js && cp -rf favicon dist",
+    "build": "mdx-deck build --no-html deck.js && cp -rf favicon dist",
     "pdf": "mdx-deck pdf deck.js",
     "image": "mdx-deck screenshot deck.js",
     "help": "mdx-deck"
