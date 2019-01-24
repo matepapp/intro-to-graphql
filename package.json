@@ -7,10 +7,11 @@
   "description": "Intro to GraphQL",
   "scripts": {
     "start": "mdx-deck deck.js",
-    "build": "mdx-deck build --no-html deck.js && cp -rf favicon dist",
+    "build": "mdx-deck build --no-html deck.js && npm run copy-assets",
     "pdf": "mdx-deck pdf deck.js",
     "image": "mdx-deck screenshot deck.js",
-    "help": "mdx-deck"
+    "help": "mdx-deck",
+    "copy-assets": "cp -rf favicon dist && cp -rf assets dist"
   },
   "devDependencies": {
     "grid-styled": "^5.0.2",
