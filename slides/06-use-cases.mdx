@@ -1,3 +1,45 @@
+import { Invert } from 'mdx-deck/layouts';
+import { Image } from 'mdx-deck';
+
 # Architectural use cases 🏗
 
 ---
+
+## GraphQL server with a DB
+
+- Greenfield projects
+- Single GraphQL web server
+- Resolves the queries and return the data
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-1.png" size="1200px" />
+
+---
+
+## GraphQL layer on existing systems
+
+- Legacy infrastructure
+- Unify and hide data fetching logic
+- API gateway
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-2.png" size="1000px" />
+
+---
+
+## Hybrid approach
+
+- Connected database and integration of existing system
+- Either call the db or an external API
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-3.png" size="800px" />
