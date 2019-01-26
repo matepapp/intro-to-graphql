@@ -199,59 +199,18 @@ subscription NewTrasaction {
 
 ---
 
-## Scalar types
-
-- Int
-- Float
-- String
-- Boolean
-- ID
-
----
-
-```graphql Objects
-type Account {
-  id: ID!
-  number: String!
-  name: String!
-  type: AccountType!
-  currency: Currency!
-  balance: Money!
-  bookedTransactions: Money
-  cards: [Card!]
-}
-
+```graphql SDL Types
 type Card {
   id: ID!
-  number: String!
   name: String!
+  number: Int!
+  limit: Float!
+  isActive: Boolean!
+  cvc: Int!
   holderName: String
   expiry: DateTime!
-  account: Account
-  cvc: String!
-  limit: Int!
-}
-----
-*
-1:10
-12:21
-```
-
----
-
-```graphql Enumerations
-enum TransactionStatus {
-  IN_PROGRESS
-  REJECTED
-  FUTURE
-  SUCCESSFUL
-}
-
-enum AccountType {
-  SAVINGS
-  CREDIT
-  WEBCARD
-  CURRENT
+  account: Account!
+  currency: Currency!
 }
 
 enum Currency {
@@ -261,10 +220,9 @@ enum Currency {
   HUF
 }
 ----
-*
-1:6
-8:14
-15:22
+1:12 > Object
+2:8 > Scalars
+11, 14:19 > Enumerations
 ```
 
 ---
@@ -291,7 +249,6 @@ type Mutation {
   updateCardName(number: String!, name: String!): Card
   deleteCard(number: String!): Card
   updateCategory(id: ID!, name: String!): Category
-  changeTransactionCategory(number: String!, categoryID: ID!): Transaction
 }
 ----
 1:4
