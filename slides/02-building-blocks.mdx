@@ -1,3 +1,5 @@
+import { Image } from 'mdx-deck';
+
 # Building blocks 🧱
 
 ---
@@ -7,6 +9,13 @@
 - Single endpoint
 - Structure of the data is flexible
 - Client declares its data needs
+
+```notes
+- REST -> data loaded from specific endpoints
+- Each endpoint clearly defined structure
+- Client needs to send more information to the server to express its data needs -> Query
+- Response is a JSON which keys are query-defined and the values are what the server returns
+```
 
 ---
 
@@ -24,6 +33,12 @@ query {
 1, 8
 2, 7
 3:6
+```
+
+```notes
+- Basic query
+- You don't have to start with query keyword, that's the defaul operation
+- Fields
 ```
 
 ---
@@ -44,6 +59,11 @@ query {
 2, 9
 3, 8
 4:7
+```
+
+```notes
+- If the operation succeeded then data, else data empty and array of errors
+- If I just delete `country`, then ...
 ```
 
 ---
@@ -72,6 +92,12 @@ query CurrentAccountQuery {
 3:6 > Scalar types
 7:10 > Money Object
 11:14 > Array of Card Object
+```
+
+```notes
+- Move on with a little bit more complicated
+- Has name, useful to reuse queries
+- BTW side note, I built a simple "imaginary" fintech GraphQL server, so most of the code snippets are from there
 ```
 
 ---
@@ -105,7 +131,6 @@ query CurrentAccountQuery {
 *
 3
 4:7 > Scalar types responses
-6, 7 > Enums
 8:11 > Money response
 12:21 > Array of Card response
 ```
@@ -117,6 +142,12 @@ query CurrentAccountQuery {
 - `Query` with side effect
 - Any operations that cause writes
 - **C** _(R)_ **U** **D**
+
+```notes
+- Focus on data fetching, but any complete data platform needs a way to modify server-side data
+- Mutation field returns an object type, you can ask for nested fields
+- Fetching the new state of an object after an update
+```
 
 ---
 
@@ -133,6 +164,11 @@ mutation UpdateCardNameMutation {
 1, 7 > 'mutation' keyword is required
 2, 6
 3:5
+```
+
+```notes
+- Mutations follow the same syntactical structure as queries, but they always need to start with the
+- Updating a card's name, then fetching the card's data
 ```
 
 ---
@@ -160,6 +196,13 @@ mutation UpdateCardNameMutation {
 - Stream of data
 - Wrapper around websockets
 
+```notes
+- Get immediately informed about important events
+- Initiate and hold a steady connection to the server
+- Server pushes the corresponding data to the client
+- Unlike queries and mutations that follow a typical “request-response-cycle”
+```
+
 ---
 
 ```graphql
@@ -175,6 +218,10 @@ subscription NewTrasaction {
 2:5
 ```
 
+```notes
+- Subscriptions are written using the same syntax as queries and mutations
+```
+
 ---
 
 ```json
@@ -188,6 +235,11 @@ subscription NewTrasaction {
 }
 ```
 
+```notes
+- Client sent this subscription to a server, a connection is opened
+- Whenever new transaction created the server sends the information
+```
+
 ---
 
 ## Schema and Schema Definition Language _(SDL)_
@@ -196,6 +248,29 @@ subscription NewTrasaction {
 - Schema specifies the capabilities of the API
 - A contract between the server and client
 - Special root types `Query`, `Mutation`, `Subscription`
+
+```notes
+- Basic understanding Query, Mutation, Subscriptions pull it together
+- One of the most important concepts
+- All the capabilities of the API and define how the clients can get data
+- Language agnostic -> GQL Schema language
+- Collection of types but special root types, entry point of every gql server
+- Endpoints in a REST API is similar to the list of fields on the Query and Mutation types
+- Pimped up Swagger
+```
+
+---
+
+<Image src="https://media.giphy.com/media/130JX2YmamwXwNj8eyY/giphy-downsized-large.gif" />
+
+```notes
+- Strong type system to define the capabilities of an API
+- All the types that are are written down in a schema using the (SDL)
+- Schema serves as the contract between the client and the server
+- Imagine there's a meeting with FE and BE to talk about the API -> result Schema
+- Can do their work without further communication since they both are aware of the structure
+- FE teams can mock the API and then when the server is done, use the real impl.
+```
 
 ---
 
@@ -223,6 +298,17 @@ enum Currency {
 1:12 > Object
 2:8 > Scalars
 11, 14:19 > Enumerations
+```
+
+```notes
+- Most basic components Objects
+- Has name, fields represent concrete data -> Scalar types comes in
+- Int: A signed 32‐bit integer
+- Float: A signed double-precision floating-point value
+- String: A UTF‐8 character sequence
+- Boolean: true or false
+- ID: unique identifier. The ID type is serialized in the same way as a String
+- Enums: particular set of allowed values
 ```
 
 ---
