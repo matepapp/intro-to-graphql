@@ -153,7 +153,7 @@ query CurrentAccountQuery {
 
 ```graphql Updating a Card's name
 mutation UpdateCardNameMutation {
-  updateCardName(number: "9999-8888-7777-6666" name: "Euro Társkártya") {
+  updateCardName(number: "9999-8888-7777-6666" name: "Eurokártya") {
     number
     name
     limit
@@ -178,7 +178,7 @@ mutation UpdateCardNameMutation {
   "data": {
     "updateCard": {
       "number": "9999-8888-7777-6666",
-      "name": "Euro Társkártya",
+      "name": "Eurokártya",
       "limit": 600
     }
   }
@@ -297,6 +297,7 @@ enum Currency {
 ----
 1:12 > Object
 2:8 > Scalars
+1, 9, 10 > Other objects
 11, 14:19 > Enumerations
 ```
 
@@ -340,4 +341,9 @@ type Mutation {
 1:4
 6:15
 17:23
+```
+
+```notes
+- The final schema, with root types
+- Fields ~ REST endpoints
 ```

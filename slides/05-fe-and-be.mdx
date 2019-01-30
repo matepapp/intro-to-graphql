@@ -15,11 +15,25 @@ import { Image } from 'mdx-deck';
 - Developer experience
 - Code sharing between platforms
 
+```notes
+- Delightful experience on the client side
+- Since we have a strongly typed schema which makes possible to generate code (types, interfaces)
+- Amazing developer experience with tools (GQL Playground), IDE integrations, build time network communication
+- Queries and Mutations are language agnostic
+```
+
 ---
 
 ## Client Libraries
 
 ![clients](https://cdn-images-1.medium.com/max/1600/1*9OG8uXcVQLfM0jfZjv2CZA.png)
+
+```notes
+- Relay from Facebook, Apollo
+- Both has built-in caching solution and tooling support
+- Relay on React, React Native, Apollo suppports most famous frameworks/platforms (Angular/Vue/React/Anroid/iOS)
+- Apollo is flexible and easy to get started
+```
 
 ---
 
@@ -29,6 +43,13 @@ import { Image } from 'mdx-deck';
 
 ## Backend
 
+```notes
+- What happens when you call an API?
+- Execute some code on the server. do a computation, read from db, call a different API
+- You don't need to know anything
+- How GraphQL does it?
+```
+
 ---
 
 export default Split;
@@ -37,15 +58,46 @@ export default Split;
 
 ### Resolvers
 
+```notes
+- 2 core parts
+- Schema = what queries clients are allowed to make and how types are related
+- Where the data for each type comes from?
+```
+
+---
+
+export default Split;
+
+![](/assets/resolver-tree.png)
+
+## Resolvers
+
 - Functions
 - Like little routers
 - Can return Objects or Scalars
+- Async
+
+```notes
+- Function that resolves a value for a type or field in a schema
+- Object is returned? execution continues to next child
+- Scalar is returned, execution completes
+- Can be async! other REST APIs, db, cache.. example
+
+Perhaps the greatest feature of GraphQL is that it hides all of the backend complexity from clients. No matter how many backends your app uses, all the client will see is a single GraphQL endpoint with a simple, self-documenting API for your application.
+```
 
 ---
 
 ## Versioning
 
 <img src="https://data.whicdn.com/images/311662868/original.gif" style={{ height: '500px' }} />
+
+```notes
+- There's nothing that prevents a GraphQL service from being versioned, GraphQL takes a strong opinion on avoiding versioning by providing the tools for the continuous evolution of a GraphQL schema.
+- Why do most APIs version?
+- Limited control over the data that's returned from an API endpoint -> any change = breaking change -> new version
+- In contrast, GraphQL only returns the data that's explicitly requested, so new capabilities can be added via new types and new fields on those types without creating a breaking change. This has led to a common practice of always avoiding breaking changes and serving a versionless API.
+```
 
 ---
 
@@ -62,3 +114,7 @@ export default Split;
 - Python
 - Scala
 - Ruby
+
+```notes
+- Since GraphQL is only a specification and it has a reference implementation in JavaScript but there's a lot more
+```
