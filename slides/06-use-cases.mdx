@@ -11,11 +11,21 @@ import { Image } from 'mdx-deck';
 - Single GraphQL web server
 - Resolves the queries and return the data
 
+```notes
+- Most common for greenfield projects
+- Single (web) server that implements the GraphQL specification
+```
+
 ---
 
 export default Invert;
 
 <Image src="/assets/use-case-1.png" size="1200px" />
+
+```notes
+- GraphQL also doesn’t care about the database or the format
+- a SQL PostgreSQL, NoSQL like MongoDB
+```
 
 ---
 
@@ -25,11 +35,23 @@ export default Invert;
 - Unify and hide data fetching logic
 - API gateway
 
+```notes
+- Multiple existing system behind a single GraphQL API
+- Compelling companies with legacy infrastructure
+- They make it practically impossible to build innovative products
+- GraphQL unify and hide
+```
+
 ---
 
 export default Invert;
 
 <Image src="/assets/use-case-2.png" size="1000px" />
+
+```notes
+- GraphQL server is responsible for fetching the data and package it up
+- Doesn’t care about the reponse format
+```
 
 ---
 
@@ -37,6 +59,11 @@ export default Invert;
 
 - Connected database and integration of existing system
 - Either call the db or an external API
+
+```notes
+- It is possible to combine the 2 approaches
+- When a query is received it will resolve either one
+```
 
 ---
 

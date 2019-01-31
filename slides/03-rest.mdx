@@ -85,8 +85,6 @@ GraphQL was developed to cope with the need for more flexibility and efficiency!
 ✅ _GraphQL - Each client can access precisely the data it needs without extra work on the server_
 
 ```notes
-- Common pattern with REST APIs is to structure the endpoints according to the views
-- Handy since it allows for the client to get all required information
 - Doesn't allow rapid iterations -> every change that is made to the UI, there is a high risk that now there is more (or less) data required
 - Kills productivity
 - Continuous deployment has become a standard, rapid iterations and frequent product updates
@@ -104,16 +102,6 @@ GraphQL was developed to cope with the need for more flexibility and efficiency!
 ```notes
 - Ending up building ad-hoc REST endpoints which violates one of REST's major goals
 - Complex operations that touch multiple parts of an application’s data model are difficult to model as a PUT, DELETE, POST, or PATCH on a single resource
-```
-
----
-
-## And the winner is...
-
-```notes
-- At the end of the day, both REST and GraphQL APIs are just fancy ways to call functions over a network
-- REST API, implementing a GraphQL API won’t feel too different
-- IMO GraphQL is easier...
 ```
 
 ---

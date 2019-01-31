@@ -128,36 +128,3 @@ query TrasactionQuery {
 26:29
 30:33
 ```
-
----
-
-```graphql
-mutation ChangeTransactionCategory {
-  changeTransactionCategory(
-    number: "ASD01234",
-    categoryID: "cjr3nx32byuwn0a89sy5rg2e4"
-  ) {
-    number
-    category {
-      name
-    }
-  }
-}
-----
-*
-```
-
----
-
-```json
-{
-  "data": {
-    "changeTransactionCategory": {
-      "number": "ASD01234",
-      "category": {
-        "name": "Szórakozás"
-      }
-    }
-  }
-}
-```
