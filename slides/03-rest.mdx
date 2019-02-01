@@ -1,0 +1,109 @@
+import { Image } from 'mdx-deck';
+
+# Comparing to REST ⚖️
+
+---
+
+## REST(ful)
+
+- Standard for designing web API
+- Interact with HTTP verbs (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)
+- Multiple endpoints
+- Server defined structure
+
+```notes
+- Over the past decade, REST = Standard
+- Great ideas, such as stateless servers and structured access to resources
+- Objects in REST are addressable by URI and interact with HTTP verb
+- Shape of API is linear = list of things you can access
+- First question -> Which endpoint should I call?
+```
+
+---
+
+## And GraphQL
+
+- Single endpoint over HTTP
+- Idea of resource
+- Shape of the resource isn't coupled how you retrieve it
+- ~~URL~~ -> `Schema`
+- Traverse from the entry point to related data
+
+```notes
+- Single endpoint = full capabilities
+- Idea of resource is similar
+- One CORE DIFFERENCE - description of resource isn't coupled the way you retrieve it
+- Following relationship defined in the schema
+```
+
+---
+
+## Pain points of REST
+
+```notes
+- Concept of REST developed, client apps were relatively simple and dev pace wasn't nearly
+- Although REST was a good fit
+- The API landscape has radically changed
+
+GraphQL was developed to cope with the need for more flexibility and efficiency! It solves many of the shortcomings and inefficiencies that developers experience when interacting with REST APIs.
+```
+
+---
+
+### Overfetching
+
+**Downloading superfluous data**
+
+✅ _GraphQL - Clients can minimize the amount of data_
+
+```notes
+- When a client downloads more information than is actually required
+- Imagine a screen when you need to show a list of users' name -> REST /users endpoint
+- Increased mobile usage, low-powered devices and sloppy networks (one of the reasons fb developed)
+```
+
+---
+
+### Underfetching
+
+**The n+1 request problem**
+
+✅ _GraphQL - Graph traversable data structures_
+
+```notes
+- A specific endpoint doesn’t provide enough of the required information
+- Make additional requests
+- Github repository and owner's name
+```
+
+---
+
+### Fast Product Iterations on the Frontend
+
+**Variety of different frameworks and platforms**
+
+✅ _GraphQL - Each client can access precisely the data it needs without extra work on the server_
+
+```notes
+- Doesn't allow rapid iterations -> every change that is made to the UI, there is a high risk that now there is more (or less) data required
+- Kills productivity
+- Continuous deployment has become a standard, rapid iterations and frequent product updates
+- Support more than 1 client frameworks/platforms
+```
+
+---
+
+### Using the wrong HTTP verb
+
+**Fetching data with `POST`?**
+
+✅ _GraphQL - Getting data with `Query`, modifying with `Mutation`_
+
+```notes
+- Ending up building ad-hoc REST endpoints which violates one of REST's major goals
+- Complex operations that touch multiple parts of an application’s data model are difficult to model as a PUT, DELETE, POST, or PATCH on a single resource
+```
+
+---
+
+<Image src="https://media.giphy.com/media/xT9KVqOt8xuRYhNpq8/giphy.gif" />

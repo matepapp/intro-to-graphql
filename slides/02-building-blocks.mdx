@@ -1,0 +1,349 @@
+import { Image } from 'mdx-deck';
+
+# Building blocks 🧱
+
+---
+
+## Query
+
+- Single endpoint
+- Structure of the data is flexible
+- Client declares its data needs
+
+```notes
+- REST -> data loaded from specific endpoints
+- Each endpoint clearly defined structure
+- Client needs to send more information to the server to express its data needs -> Query
+- Response is a JSON which keys are query-defined and the values are what the server returns
+```
+
+---
+
+```graphql Query Spotify user
+query {
+  me {
+  	id
+  	email
+  	display_name
+  	country
+  }
+}
+----
+*
+1, 8
+2, 7
+3:6
+```
+
+```notes
+- Basic query
+- You don't have to start with query keyword, that's the defaul operation
+- Fields
+```
+
+---
+
+```json Response
+{
+  "data": {
+    "me": {
+      "id": "11124253812",
+      "email": "matepapp@icloud.com",
+      "display_name": "Mate Papp",
+      "country": "HU"
+    }
+  }
+}
+----
+*
+2, 9
+3, 8
+4:7
+```
+
+```notes
+- If the operation succeeded then data, else data empty and array of errors
+- If I just delete `country`, then ...
+```
+
+---
+
+```graphql Query with name, arguments and objects
+query CurrentAccountQuery {
+  account(number: "12345678-87654321-24681012") {
+    name
+    number
+    type
+    currency
+    balance {
+      amount
+      currency
+    }
+    cards {
+      name
+      number
+    }
+  }
+}
+----
+*
+1, 16 > Query's Name
+2, 15 > 'number' argument
+3:6 > Scalar types
+7:10 > Money Object
+11:14 > Array of Card Object
+```
+
+```notes
+- Move on with a little bit more complicated
+- Has name, useful to reuse queries
+- BTW side note, I built a simple "imaginary" fintech GraphQL server, so most of the code snippets are from there
+```
+
+---
+
+```json Response
+{
+  "data": {
+    "account": {
+      "name": "Deviza számla",
+      "number": "12345678-87654321-24681012",
+      "type": "CURRENT",
+      "currency": "EUR",
+      "balance": {
+        "amount": 500,
+        "currency": "EUR"
+      },
+      "cards": [
+        {
+          "name": "Euro kártya",
+          "number": "1111-2222-3333-4444"
+        },
+        {
+          "name": "Társkártya",
+          "number": "9999-8888-7777-6666"
+        }
+      ]
+    }
+  }
+}
+----
+*
+3
+4:7 > Scalar types responses
+8:11 > Money response
+12:21 > Array of Card response
+```
+
+---
+
+## Mutation
+
+- `Query` with side effect
+- Any operations that cause writes
+- **C** _(R)_ **U** **D**
+
+```notes
+- Focus on data fetching, but any complete data platform needs a way to modify server-side data
+- Mutation field returns an object type, you can ask for nested fields
+- Fetching the new state of an object after an update
+```
+
+---
+
+```graphql Updating a Card's name
+mutation UpdateCardNameMutation {
+  updateCardName(number: "9999-8888-7777-6666" name: "Eurokártya") {
+    number
+    name
+    limit
+  }
+}
+----
+*
+1, 7 > 'mutation' keyword is required
+2, 6
+3:5
+```
+
+```notes
+- Mutations follow the same syntactical structure as queries, but they always need to start with the
+- Updating a card's name, then fetching the card's data
+```
+
+---
+
+```json
+{
+  "data": {
+    "updateCard": {
+      "number": "9999-8888-7777-6666",
+      "name": "Eurokártya",
+      "limit": 600
+    }
+  }
+}
+----
+*
+3:7
+```
+
+---
+
+## Subscription
+
+- Realtime connection to the server
+- Stream of data
+- Wrapper around websockets
+
+```notes
+- Get immediately informed about important events
+- Initiate and hold a steady connection to the server
+- Server pushes the corresponding data to the client
+- Unlike queries and mutations that follow a typical “request-response-cycle”
+```
+
+---
+
+```graphql
+subscription NewTransaction {
+  newTransaction {
+    number
+    date
+  }
+}
+----
+*
+1, 6
+2:5
+```
+
+```notes
+- Subscriptions are written using the same syntax as queries and mutations
+```
+
+---
+
+```json
+{
+  "data": {
+    "newTrasaction": {
+      "number": "QWERTY1234",
+      "date": "201902010914"
+    }
+  }
+}
+```
+
+```notes
+- Client sent this subscription to a server, a connection is opened
+- Whenever new transaction created the server sends the information
+```
+
+---
+
+## Schema and Schema Definition Language _(SDL)_
+
+- GraphQL's own strongly typed language
+- Schema specifies the capabilities of the API
+- A contract between the server and client
+- Special root types `Query`, `Mutation`, `Subscription`
+
+```notes
+- Basic understanding Query, Mutation, Subscriptions pull it together
+- One of the most important concepts
+- All the capabilities of the API and define how the clients can get data
+- Language agnostic -> GQL Schema language
+- Collection of types but special root types, entry point of every gql server
+- Endpoints in a REST API is similar to the list of fields on the Query and Mutation types
+- Pimped up Swagger
+```
+
+---
+
+<Image src="https://media.giphy.com/media/130JX2YmamwXwNj8eyY/giphy-downsized-large.gif" />
+
+```notes
+- Strong type system to define the capabilities of an API
+- All the types that are are written down in a schema using the (SDL)
+- Schema serves as the contract between the client and the server
+- Imagine there's a meeting with FE and BE to talk about the API -> result Schema
+- Can do their work without further communication since they both are aware of the structure
+- FE teams can mock the API and then when the server is done, use the real impl.
+```
+
+---
+
+```graphql SDL Types
+type Card {
+  id: ID!
+  name: String!
+  number: Int!
+  limit: Float!
+  isActive: Boolean!
+  cvc: Int!
+  holderName: String
+  expiry: DateTime!
+  account: Account!
+  currency: Currency!
+}
+
+enum Currency {
+  EUR
+  USD
+  GBP
+  HUF
+}
+----
+1:12 > Object
+2:8 > Scalars
+1, 9, 10 > Other objects
+11, 14:19 > Enumerations
+```
+
+```notes
+- Most basic components Objects
+- Has name, fields represent concrete data -> Scalar types comes in
+- Int: A signed 32‐bit integer
+- Float: A signed double-precision floating-point value
+- String: A UTF‐8 character sequence
+- Boolean: true or false
+- ID: unique identifier. The ID type is serialized in the same way as a String
+- Enums: particular set of allowed values
+```
+
+---
+
+```graphql Root types
+type Schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  account(number: String!): Account
+  accounts: [Account]!
+  card(number: String!): Card
+  cards: [Card]!
+  category(id: ID!): Category
+  categories: [Category]!
+  transaction(number: String!): Transaction
+  transactions: [Transaction]!
+}
+
+type Mutation {
+  updateAccountName(number: String!, name: String!): Account
+  updateCardName(number: String!, name: String!): Card
+  deleteCard(number: String!): Card
+  updateCategory(id: ID!, name: String!): Category
+}
+----
+1:4
+6:15
+17:23
+```
+
+```notes
+- The final schema, with root types
+- Fields ~ REST endpoints
+```

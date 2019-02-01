@@ -1,0 +1,72 @@
+import { Invert } from 'mdx-deck/layouts';
+import { Image } from 'mdx-deck';
+
+# Architectural use cases 🏗
+
+---
+
+## GraphQL server with a DB
+
+- Greenfield projects
+- Single GraphQL web server
+- Resolves the queries and return the data
+
+```notes
+- Most common for greenfield projects
+- Single (web) server that implements the GraphQL specification
+```
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-1.png" size="1200px" />
+
+```notes
+- GraphQL also doesn’t care about the database or the format
+- a SQL PostgreSQL, NoSQL like MongoDB
+```
+
+---
+
+## GraphQL layer on existing systems
+
+- Legacy infrastructure
+- Unify and hide data fetching logic
+- API gateway
+
+```notes
+- Multiple existing system behind a single GraphQL API
+- Compelling companies with legacy infrastructure
+- They make it practically impossible to build innovative products
+- GraphQL unify and hide
+```
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-2.png" size="1000px" />
+
+```notes
+- GraphQL server is responsible for fetching the data and package it up
+- Doesn’t care about the reponse format
+```
+
+---
+
+## Hybrid approach
+
+- Connected database and integration of existing system
+- Either call the db or an external API
+
+```notes
+- It is possible to combine the 2 approaches
+- When a query is received it will resolve either one
+```
+
+---
+
+export default Invert;
+
+<Image src="/assets/use-case-3.png" size="800px" />
