@@ -19,13 +19,13 @@ import { Image } from 'mdx-deck';
 
 ---
 
-```graphql Query Spotify user
+```graphql Query Github user
 query {
-  me {
-  	id
-  	email
-  	display_name
-  	country
+  viewer {
+    name
+    email
+    company
+    location
   }
 }
 ----
@@ -46,11 +46,11 @@ query {
 ```json Response
 {
   "data": {
-    "me": {
-      "id": "11124253812",
-      "email": "matepapp@icloud.com",
-      "display_name": "Mate Papp",
-      "country": "HU"
+    "viewer": {
+      "name": "Mate Papp",
+      "location": "Budapest",
+      "company": "Supercharge",
+      "email": "matepapp@icloud.com"
     }
   }
 }
@@ -63,76 +63,155 @@ query {
 
 ```notes
 - If the operation succeeded then data, else data empty and array of errors
-- If I just delete `country`, then ...
+- If I just delete `location`, then ...
 ```
 
 ---
 
-```graphql Query with name, arguments and objects
-query CurrentAccountQuery {
-  account(number: "12345678-87654321-24681012") {
+```graphql
+query SwiftLanguageRepositorQuery {
+  repository(owner: "Apple", name: "swift") {
     name
-    number
-    type
-    currency
-    balance {
-      amount
-      currency
-    }
-    cards {
-      name
-      number
+    description
+    url
+    stargazers {
+      totalCount
     }
   }
 }
+
 ----
 *
-1, 16 > Query's Name
-2, 15 > 'number' argument
-3:6 > Scalar types
-7:10 > Money Object
-11:14 > Array of Card Object
+1, 10 > Query's Name
+2, 9 > 'owner' and 'name' argument
+3:8 > Selected Fields
+*
+```
+
+---
+
+```json
+{
+  "data": {
+    "repository": {
+      "name": "swift",
+      "description": "The Swift Programming Language",
+      "url": "https://github.com/apple/swift",
+      "stargazers": {
+        "totalCount": 47094
+      }
+    }
+  }
+}
+
+----
+*
+3, 10 > Repository response
+4:9 > Selected fields' responses
+*
+```
+
+---
+
+```graphql
+query OrganizationRepositoryIssueQuery {
+  organization(login: "team-supercharge") {
+    name
+    description
+    websiteUrl
+    repository(name: "ShimmerLayout") {
+      name
+      forkCount
+      primaryLanguage {
+        name
+        color
+      }
+      issues(
+        orderBy: { field: CREATED_AT, direction: DESC },
+        first: 3
+      ) {
+        nodes {
+          title
+          createdAt
+          author {
+            login
+          }
+        }
+      }
+    }
+  }
+}
+
+----
+*
+1, 27 > Query's Name
+2, 26 > 'login' argument
+3:5 > Scalar types
+6, 25 > Repository Object
+10:13 > Language Object
+14:24 > Issues Array
+*
+
 ```
 
 ```notes
 - Move on with a little bit more complicated
 - Has name, useful to reuse queries
-- BTW side note, I built a simple "imaginary" fintech GraphQL server, so most of the code snippets are from there
 ```
 
 ---
 
-```json Response
+```json
 {
   "data": {
-    "account": {
-      "name": "Deviza számla",
-      "number": "12345678-87654321-24681012",
-      "type": "CURRENT",
-      "currency": "EUR",
-      "balance": {
-        "amount": 500,
-        "currency": "EUR"
-      },
-      "cards": [
-        {
-          "name": "Euro kártya",
-          "number": "1111-2222-3333-4444"
+    "organization": {
+      "name": "Supercharge",
+      "description": "We create stunning experiences on mobile",
+      "websiteUrl": "http://supercharge.io/",
+      "repository": {
+        "name": "ShimmerLayout",
+        "forkCount": 227,
+        "primaryLanguage": {
+          "name": "Java",
+          "color": "#b07219"
         },
-        {
-          "name": "Társkártya",
-          "number": "9999-8888-7777-6666"
+        "issues": {
+          "nodes": [
+            {
+              "title": "Facing memory leaks and hanging UI using IO shimmer ",
+              "createdAt": "2019-02-21T06:54:43Z",
+              "author": {
+                "login": "saurabhdhillon"
+              }
+            },
+            {
+              "title": "No possibility to check if the Animation has started",
+              "createdAt": "2019-02-14T11:44:31Z",
+              "author": {
+                "login": "WebTiger89"
+              }
+            },
+            {
+              "title": "ConstraintLayout Support",
+              "createdAt": "2018-12-27T09:00:05Z",
+              "author": {
+                "login": "yeminnhtut"
+              }
+            }
+          ]
         }
-      ]
+      }
     }
   }
 }
 ----
 *
 3
-4:7 > Scalar types responses
-8:11 > Money response
-12:21 > Array of Card response
+4:6 > Scalar types responses
+7:39 > Repository response
+10:13 > Language response
+14:38 > First 3 Issues sorted by creation date descending with author's name
+*
 ```
 
 ---
@@ -151,19 +230,24 @@ query CurrentAccountQuery {
 
 ---
 
-```graphql Updating a Card's name
-mutation UpdateCardNameMutation {
-  updateCardName(number: "9999-8888-7777-6666" name: "Eurokártya") {
-    number
-    name
-    limit
+```graphql Starring a Repository
+mutation AddStar {
+  addStar(input: { starrableId: "MDEwOlJlcG9zaXRvcnkxNjM1NDA5MTk=" }) {
+    starrable {
+      id
+      stargazers(last: 1) {
+        nodes {
+          login
+        }
+      }
+    }
   }
 }
 ----
 *
 1, 7 > 'mutation' keyword is required
-2, 6
-3:5
+2 > Define which repository with its starrable ID
+3:10 > Use response to update UI
 ```
 
 ```notes
@@ -176,16 +260,23 @@ mutation UpdateCardNameMutation {
 ```json
 {
   "data": {
-    "updateCard": {
-      "number": "9999-8888-7777-6666",
-      "name": "Eurokártya",
-      "limit": 600
+    "addStar": {
+      "starrable": {
+        "stargazers": {
+          "nodes": [
+            {
+              "login": "matepapp"
+            }
+          ]
+        }
+      }
     }
   }
 }
 ----
 *
-3:7
+3, 13 > Mutation field's name
+4:12
 ```
 
 ---
@@ -201,43 +292,7 @@ mutation UpdateCardNameMutation {
 - Initiate and hold a steady connection to the server
 - Server pushes the corresponding data to the client
 - Unlike queries and mutations that follow a typical “request-response-cycle”
-```
-
----
-
-```graphql
-subscription NewTransaction {
-  newTransaction {
-    number
-    date
-  }
-}
-----
-*
-1, 6
-2:5
-```
-
-```notes
 - Subscriptions are written using the same syntax as queries and mutations
-```
-
----
-
-```json
-{
-  "data": {
-    "newTrasaction": {
-      "number": "QWERTY1234",
-      "date": "201902010914"
-    }
-  }
-}
-```
-
-```notes
-- Client sent this subscription to a server, a connection is opened
-- Whenever new transaction created the server sends the information
 ```
 
 ---
@@ -274,32 +329,13 @@ subscription NewTransaction {
 
 ---
 
-```graphql SDL Types
-type Card {
-  id: ID!
-  name: String!
-  number: Int!
-  limit: Float!
-  isActive: Boolean!
-  cvc: Int!
-  holderName: String
-  expiry: DateTime!
-  account: Account!
-  currency: Currency!
-}
+## SDL Types
 
-enum Currency {
-  EUR
-  USD
-  GBP
-  HUF
-}
-----
-1:12 > Object
-2:8 > Scalars
-1, 9, 10 > Other objects
-11, 14:19 > Enumerations
-```
+- Object
+- Scalars
+- Enumeration
+- Interface
+- Union types
 
 ```notes
 - Most basic components Objects
@@ -321,26 +357,20 @@ type Schema {
 }
 
 type Query {
-  account(number: String!): Account
-  accounts: [Account]!
-  card(number: String!): Card
-  cards: [Card]!
-  category(id: ID!): Category
-  categories: [Category]!
-  transaction(number: String!): Transaction
-  transactions: [Transaction]!
+  viewer: User!
+  repository(owner: String!, name: String!): Repository
+  organization(login: String!): Organization
+  ...
 }
 
 type Mutation {
-  updateAccountName(number: String!, name: String!): Account
-  updateCardName(number: String!, name: String!): Card
-  deleteCard(number: String!): Card
-  updateCategory(id: ID!, name: String!): Category
+  addStar(input: AddStarInput!): AddStarPayload!
+  ...
 }
 ----
 1:4
-6:15
-17:23
+6:11
+13:16
 ```
 
 ```notes
