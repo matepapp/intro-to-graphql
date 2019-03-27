@@ -144,12 +144,12 @@ query OrganizationRepositoryIssueQuery {
 
 ----
 *
-1, 27 > Query's Name
-2, 26 > 'login' argument
+1 > Query's Name
+2 > 'login' argument
 3:5 > Scalar types
-6, 25 > Repository Object
-10:13 > Language Object
-14:24 > Issues Array
+6:25 > Repository Object
+9:12 > Language Object
+13:24 > Issues Array
 *
 
 ```
@@ -245,14 +245,13 @@ mutation AddStar {
 }
 ----
 *
-1, 7 > 'mutation' keyword is required
+1 > 'mutation' keyword is required
 2 > Define which repository with its starrable ID
 3:10 > Use response to update UI
 ```
 
 ```notes
 - Mutations follow the same syntactical structure as queries, but they always need to start with the
-- Updating a card's name, then fetching the card's data
 ```
 
 ---
@@ -262,6 +261,7 @@ mutation AddStar {
   "data": {
     "addStar": {
       "starrable": {
+        "id": "MDEwOlJlcG9zaXRvcnkxNjM1NDA5MTk=",
         "stargazers": {
           "nodes": [
             {
@@ -275,8 +275,8 @@ mutation AddStar {
 }
 ----
 *
-3, 13 > Mutation field's name
-4:12
+3, 14 > Mutation field's name
+4:13
 ```
 
 ---
