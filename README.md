@@ -1,8 +1,10 @@
 # Intro to GraphQL
 
-An introductory presentation about GraphQL.
+## Part 1
 
-For demonstration purposes I created a very simple database and GraphQL API wrapper using [Prisma](https://prisma.io). You can try it out [here](https://eu1.prisma.sh/mate-papp-6c597a/intro-to-graphql/demo) in [GraphQL Playground](https://github.com/prisma/graphql-playground) or you can browse the source in the `prisma` folder.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4115459-eefb-4f9e-a3c3-c9d658761bf8/deploy-status)](https://app.netlify.com/sites/intro-to-graphql/deploys)
+
+An introductory presentation about GraphQL.
 
 Code highlighting supported by [code-surfer](https://github.com/pomber/code-surfer).
 
