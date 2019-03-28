@@ -2,6 +2,8 @@
 
 ## Part 1
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4115459-eefb-4f9e-a3c3-c9d658761bf8/deploy-status)](https://app.netlify.com/sites/intro-to-graphql/deploys)
+
 An introductory presentation about GraphQL.
 
 Code highlighting supported by [code-surfer](https://github.com/pomber/code-surfer).
