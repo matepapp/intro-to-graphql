@@ -23,8 +23,7 @@ xcuserdata/
 **/timeline.xctimeline
 **/playground.xcworkspace
 
-**/Carthage/Checkouts
-**/Carthage/Build
+**/Pods/
 
 dist
 node_modules

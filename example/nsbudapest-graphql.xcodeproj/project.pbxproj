@@ -12,6 +12,10 @@
 		09207D8E22515D0800E140CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8C22515D0800E140CB /* Main.storyboard */; };
 		09207D9022515D0900E140CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8F22515D0900E140CB /* Assets.xcassets */; };
 		09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9122515D0900E140CB /* LaunchScreen.storyboard */; };
+		09207D9C2251692600E140CB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D9B2251692600E140CB /* API.swift */; };
+		09207D9E2251693000E140CB /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9D2251693000E140CB /* schema.json */; };
+		09FB42A922516A4300B3C76A /* ViewerQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ViewerQuery.graphql */; };
+		2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,12 @@
 		09207D8F22515D0900E140CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09207D9222515D0900E140CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09207D9422515D0900E140CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09207D9B2251692600E140CB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		09207D9D2251693000E140CB /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		09FB42A822516A4300B3C76A /* ViewerQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ViewerQuery.graphql; sourceTree = "<group>"; };
+		7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nsbudapest_graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.release.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.release.xcconfig"; sourceTree = "<group>"; };
+		FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +49,10 @@
 		09207D7C22515D0800E140CB = {
 			isa = PBXGroup;
 			children = (
-				09207D8722515D0800E140CB /* Source */,
+				09207D8722515D0800E140CB /* nsbudapest-graphql */,
 				09207D8622515D0800E140CB /* Products */,
+				F34E3C4FA0CD145A1A8E85DB /* Pods */,
+				A0B9F28513CB157B82E6C36B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,17 +64,37 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		09207D8722515D0800E140CB /* Source */ = {
+		09207D8722515D0800E140CB /* nsbudapest-graphql */ = {
 			isa = PBXGroup;
 			children = (
+				09207D9B2251692600E140CB /* API.swift */,
+				09FB42A822516A4300B3C76A /* ViewerQuery.graphql */,
 				09207D8822515D0800E140CB /* AppDelegate.swift */,
 				09207D8A22515D0800E140CB /* ViewController.swift */,
 				09207D8C22515D0800E140CB /* Main.storyboard */,
 				09207D8F22515D0900E140CB /* Assets.xcassets */,
 				09207D9122515D0900E140CB /* LaunchScreen.storyboard */,
 				09207D9422515D0900E140CB /* Info.plist */,
+				09207D9D2251693000E140CB /* schema.json */,
 			);
-			path = Source;
+			path = "nsbudapest-graphql";
+			sourceTree = "<group>";
+		};
+		A0B9F28513CB157B82E6C36B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F34E3C4FA0CD145A1A8E85DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */,
+				9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09207D9722515D0900E140CB /* Build configuration list for PBXNativeTarget "nsbudapest-graphql" */;
 			buildPhases = (
+				63D05F2BDD51B1597AA2C823 /* [CP] Check Pods Manifest.lock */,
+				09207D9A2251665200E140CB /* Generate Apollo GraphQL API */,
 				09207D8122515D0800E140CB /* Sources */,
 				09207D8222515D0800E140CB /* Frameworks */,
 				09207D8322515D0800E140CB /* Resources */,
+				4F18EEC1C581F7C4644C1023 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,13 +158,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09207D9E2251693000E140CB /* schema.json in Resources */,
 				09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */,
 				09207D9022515D0900E140CB /* Assets.xcassets in Resources */,
 				09207D8E22515D0800E140CB /* Main.storyboard in Resources */,
+				09FB42A922516A4300B3C76A /* ViewerQuery.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09207D9A2251665200E140CB /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
+		};
+		4F18EEC1C581F7C4644C1023 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63D05F2BDD51B1597AA2C823 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nsbudapest-graphql-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09207D8122515D0800E140CB /* Sources */ = {
@@ -136,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09207D8B22515D0800E140CB /* ViewController.swift in Sources */,
+				09207D9C2251692600E140CB /* API.swift in Sources */,
 				09207D8922515D0800E140CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +384,7 @@
 		};
 		09207D9822515D0900E140CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +403,7 @@
 		};
 		09207D9922515D0900E140CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

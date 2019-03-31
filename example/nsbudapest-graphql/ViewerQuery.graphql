@@ -1,0 +1,8 @@
+query Viewer {
+  viewer {
+    name
+    email
+    company
+    location
+  }
+}
