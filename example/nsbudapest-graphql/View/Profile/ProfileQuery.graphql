@@ -1,8 +1,9 @@
-query Viewer {
+query Profile {
   viewer {
     name
     email
     company
     location
+    avatarUrl
   }
 }

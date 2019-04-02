@@ -2,9 +2,9 @@
 
 import Apollo
 
-public final class ViewerQuery: GraphQLQuery {
+public final class ProfileQuery: GraphQLQuery {
   public let operationDefinition =
-    "query Viewer {\n  viewer {\n    __typename\n    name\n    email\n    company\n    location\n  }\n}"
+    "query Profile {\n  viewer {\n    __typename\n    name\n    email\n    company\n    location\n    avatarUrl\n  }\n}"
 
   public init() {
   }
@@ -45,6 +45,7 @@ public final class ViewerQuery: GraphQLQuery {
         GraphQLField("email", type: .nonNull(.scalar(String.self))),
         GraphQLField("company", type: .scalar(String.self)),
         GraphQLField("location", type: .scalar(String.self)),
+        GraphQLField("avatarUrl", type: .nonNull(.scalar(String.self))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -53,8 +54,8 @@ public final class ViewerQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(name: String? = nil, email: String, company: String? = nil, location: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "User", "name": name, "email": email, "company": company, "location": location])
+      public init(name: String? = nil, email: String, company: String? = nil, location: String? = nil, avatarUrl: String) {
+        self.init(unsafeResultMap: ["__typename": "User", "name": name, "email": email, "company": company, "location": location, "avatarUrl": avatarUrl])
       }
 
       public var __typename: String {
@@ -103,6 +104,16 @@ public final class ViewerQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "location")
+        }
+      }
+
+      /// A URL pointing to the user's public avatar.
+      public var avatarUrl: String {
+        get {
+          return resultMap["avatarUrl"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "avatarUrl")
         }
       }
     }

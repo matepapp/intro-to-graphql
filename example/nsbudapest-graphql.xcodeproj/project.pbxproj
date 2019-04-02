@@ -8,27 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		09207D8922515D0800E140CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D8822515D0800E140CB /* AppDelegate.swift */; };
-		09207D8B22515D0800E140CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D8A22515D0800E140CB /* ViewController.swift */; };
+		09207D8B22515D0800E140CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D8A22515D0800E140CB /* ProfileViewController.swift */; };
 		09207D8E22515D0800E140CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8C22515D0800E140CB /* Main.storyboard */; };
 		09207D9022515D0900E140CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8F22515D0900E140CB /* Assets.xcassets */; };
 		09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9122515D0900E140CB /* LaunchScreen.storyboard */; };
 		09207D9C2251692600E140CB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D9B2251692600E140CB /* API.swift */; };
 		09207D9E2251693000E140CB /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9D2251693000E140CB /* schema.json */; };
-		09FB42A922516A4300B3C76A /* ViewerQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ViewerQuery.graphql */; };
+		099C994F2253BBD900CDA478 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C994E2253BBD900CDA478 /* Apollo.swift */; };
+		099C99532253C36B00CDA478 /* StarredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99522253C36B00CDA478 /* StarredViewController.swift */; };
+		099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99552253C64E00CDA478 /* UIImageView+Download.swift */; };
+		09FB42A922516A4300B3C76A /* ProfileQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ProfileQuery.graphql */; };
 		2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09207D8522515D0800E140CB /* nsbudapest-graphql.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nsbudapest-graphql.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09207D8822515D0800E140CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09207D8A22515D0800E140CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		09207D8A22515D0800E140CB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		09207D8D22515D0800E140CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09207D8F22515D0900E140CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09207D9222515D0900E140CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09207D9422515D0900E140CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09207D9B2251692600E140CB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		09207D9D2251693000E140CB /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		09FB42A822516A4300B3C76A /* ViewerQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ViewerQuery.graphql; sourceTree = "<group>"; };
+		099C994E2253BBD900CDA478 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		099C99522253C36B00CDA478 /* StarredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredViewController.swift; sourceTree = "<group>"; };
+		099C99552253C64E00CDA478 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		09FB42A822516A4300B3C76A /* ProfileQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileQuery.graphql; sourceTree = "<group>"; };
 		7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nsbudapest_graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.release.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.release.xcconfig"; sourceTree = "<group>"; };
 		FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,17 +73,92 @@
 		09207D8722515D0800E140CB /* nsbudapest-graphql */ = {
 			isa = PBXGroup;
 			children = (
-				09207D9B2251692600E140CB /* API.swift */,
-				09FB42A822516A4300B3C76A /* ViewerQuery.graphql */,
-				09207D8822515D0800E140CB /* AppDelegate.swift */,
-				09207D8A22515D0800E140CB /* ViewController.swift */,
-				09207D8C22515D0800E140CB /* Main.storyboard */,
-				09207D8F22515D0900E140CB /* Assets.xcassets */,
-				09207D9122515D0900E140CB /* LaunchScreen.storyboard */,
-				09207D9422515D0900E140CB /* Info.plist */,
-				09207D9D2251693000E140CB /* schema.json */,
+				099C99542253C63C00CDA478 /* Extension */,
+				099C994B2253BAFF00CDA478 /* Resources */,
+				099C99472253BA8500CDA478 /* Apollo */,
+				099C99462253BA4D00CDA478 /* App */,
+				099C99422253B9B100CDA478 /* View */,
 			);
 			path = "nsbudapest-graphql";
+			sourceTree = "<group>";
+		};
+		099C99422253B9B100CDA478 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				099C99512253C35400CDA478 /* Starred */,
+				099C99502253C33B00CDA478 /* Profile */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		099C99462253BA4D00CDA478 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8822515D0800E140CB /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		099C99472253BA8500CDA478 /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				09207D9D2251693000E140CB /* schema.json */,
+				09207D9B2251692600E140CB /* API.swift */,
+				099C994E2253BBD900CDA478 /* Apollo.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		099C994B2253BAFF00CDA478 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				099C994D2253BB2600CDA478 /* Assets */,
+				099C994C2253BB1B00CDA478 /* Storyboard */,
+				09207D9422515D0900E140CB /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		099C994C2253BB1B00CDA478 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8C22515D0800E140CB /* Main.storyboard */,
+				09207D9122515D0900E140CB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		099C994D2253BB2600CDA478 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8F22515D0900E140CB /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		099C99502253C33B00CDA478 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				09FB42A822516A4300B3C76A /* ProfileQuery.graphql */,
+				09207D8A22515D0800E140CB /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		099C99512253C35400CDA478 /* Starred */ = {
+			isa = PBXGroup;
+			children = (
+				099C99522253C36B00CDA478 /* StarredViewController.swift */,
+			);
+			path = Starred;
+			sourceTree = "<group>";
+		};
+		099C99542253C63C00CDA478 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				099C99552253C64E00CDA478 /* UIImageView+Download.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A0B9F28513CB157B82E6C36B /* Frameworks */ = {
@@ -132,6 +213,7 @@
 				TargetAttributes = {
 					09207D8422515D0800E140CB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -162,7 +244,7 @@
 				09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */,
 				09207D9022515D0900E140CB /* Assets.xcassets in Resources */,
 				09207D8E22515D0800E140CB /* Main.storyboard in Resources */,
-				09FB42A922516A4300B3C76A /* ViewerQuery.graphql in Resources */,
+				09FB42A922516A4300B3C76A /* ProfileQuery.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +267,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=Apollo/schema.json Apollo/API.swift\n";
 		};
 		4F18EEC1C581F7C4644C1023 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -195,7 +277,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -206,7 +288,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		63D05F2BDD51B1597AA2C823 /* [CP] Check Pods Manifest.lock */ = {
@@ -238,9 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09207D8B22515D0800E140CB /* ViewController.swift in Sources */,
+				099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */,
+				09207D8B22515D0800E140CB /* ProfileViewController.swift in Sources */,
 				09207D9C2251692600E140CB /* API.swift in Sources */,
+				099C99532253C36B00CDA478 /* StarredViewController.swift in Sources */,
 				09207D8922515D0800E140CB /* AppDelegate.swift in Sources */,
+				099C994F2253BBD900CDA478 /* Apollo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,14 +474,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6SA5UUA26;
-				INFOPLIST_FILE = "nsbudapest-graphql/Info.plist";
+				INFOPLIST_FILE = "nsbudapest-graphql/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.matepapp.nsbudapest-graphql";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -408,14 +493,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6SA5UUA26;
-				INFOPLIST_FILE = "nsbudapest-graphql/Info.plist";
+				INFOPLIST_FILE = "nsbudapest-graphql/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.matepapp.nsbudapest-graphql";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

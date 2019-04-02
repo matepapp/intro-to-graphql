@@ -4,15 +4,20 @@ PODS:
   - Apollo/Core (0.9.5)
 
 DEPENDENCIES:
-  - Apollo
+  - Apollo (from `https://github.com/apollographql/apollo-ios.git`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Apollo
+EXTERNAL SOURCES:
+  Apollo:
+    :git: https://github.com/apollographql/apollo-ios.git
+
+CHECKOUT OPTIONS:
+  Apollo:
+    :commit: cf2c6199f84ed62dbd5e801d7520918e4da9143e
+    :git: https://github.com/apollographql/apollo-ios.git
 
 SPEC CHECKSUMS:
   Apollo: 19caf3246d292bbb69ecad1bd098661f78222aba
 
-PODFILE CHECKSUM: 52661223d6176d11a6cec80817dd4e60f055b793
+PODFILE CHECKSUM: 75c64b3fe318d77b87f68e35d5bac86d249a43dd
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

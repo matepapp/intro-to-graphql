@@ -6,5 +6,5 @@ target 'nsbudapest-graphql' do
   use_frameworks!
 
   # Pods for nsbudapest-graphql
-  pod "Apollo"
+  pod 'Apollo', :git => 'https://github.com/apollographql/apollo-ios.git'
 end
