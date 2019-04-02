@@ -1,9 +1,18 @@
 query Profile {
   viewer {
-    name
-    email
-    company
-    location
+    login
     avatarUrl
+    name
+    status {
+      emoji
+      message
+    }
+    bio
+    company
+    email
+    location
+    repositories {
+      totalCount
+    }
   }
 }

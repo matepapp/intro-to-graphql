@@ -17,6 +17,7 @@
 		099C994F2253BBD900CDA478 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C994E2253BBD900CDA478 /* Apollo.swift */; };
 		099C99532253C36B00CDA478 /* StarredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99522253C36B00CDA478 /* StarredViewController.swift */; };
 		099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99552253C64E00CDA478 /* UIImageView+Download.swift */; };
+		099C99582253E7FE00CDA478 /* UIImageView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */; };
 		09FB42A922516A4300B3C76A /* ProfileQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ProfileQuery.graphql */; };
 		2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		099C994E2253BBD900CDA478 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
 		099C99522253C36B00CDA478 /* StarredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredViewController.swift; sourceTree = "<group>"; };
 		099C99552253C64E00CDA478 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rounded.swift"; sourceTree = "<group>"; };
 		09FB42A822516A4300B3C76A /* ProfileQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileQuery.graphql; sourceTree = "<group>"; };
 		7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nsbudapest_graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.release.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				099C99552253C64E00CDA478 /* UIImageView+Download.swift */,
+				099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,12 +282,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emoji.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -325,6 +332,7 @@
 				09207D9C2251692600E140CB /* API.swift in Sources */,
 				099C99532253C36B00CDA478 /* StarredViewController.swift in Sources */,
 				09207D8922515D0800E140CB /* AppDelegate.swift in Sources */,
+				099C99582253E7FE00CDA478 /* UIImageView+Rounded.swift in Sources */,
 				099C994F2253BBD900CDA478 /* Apollo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,5 +6,7 @@ target 'nsbudapest-graphql' do
   use_frameworks!
 
   # Pods for nsbudapest-graphql
+  pod "SkeletonView"
+  pod 'Emoji-swift'
   pod 'Apollo', :git => 'https://github.com/apollographql/apollo-ios.git'
 end

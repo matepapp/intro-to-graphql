@@ -2,9 +2,18 @@ PODS:
   - Apollo (0.9.5):
     - Apollo/Core (= 0.9.5)
   - Apollo/Core (0.9.5)
+  - Emoji-swift (0.3.0)
+  - SkeletonView (1.4.2)
 
 DEPENDENCIES:
   - Apollo (from `https://github.com/apollographql/apollo-ios.git`)
+  - Emoji-swift
+  - SkeletonView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Emoji-swift
+    - SkeletonView
 
 EXTERNAL SOURCES:
   Apollo:
@@ -17,7 +26,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Apollo: 19caf3246d292bbb69ecad1bd098661f78222aba
+  Emoji-swift: 3f07baeecbeb1490193299f993890020aae8c413
+  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
 
-PODFILE CHECKSUM: 75c64b3fe318d77b87f68e35d5bac86d249a43dd
+PODFILE CHECKSUM: 8d5eb82ad48b5d4e23f80c54c2f89377cd7ed75d
 
 COCOAPODS: 1.6.1
