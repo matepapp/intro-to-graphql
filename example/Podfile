@@ -8,5 +8,5 @@ target 'nsbudapest-graphql' do
   # Pods for nsbudapest-graphql
   pod "SkeletonView"
   pod 'Emoji-swift'
-  pod 'Apollo', :git => 'https://github.com/apollographql/apollo-ios.git'
+  pod 'Apollo'
 end

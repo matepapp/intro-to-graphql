@@ -247,7 +247,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="icons8-github-filled-3" id="rhD-Hr-zj2"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="github-logo" id="rhD-Hr-zj2"/>
                     <connections>
                         <outlet property="avatarImageView" destination="YjC-ka-6lh" id="1Yr-fw-qc5"/>
                         <outlet property="bioLabel" destination="Kf3-UY-UtI" id="SNb-GK-3Tr"/>
@@ -285,6 +285,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eWf-Sb-Lbb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dSJ-bj-14j">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -299,6 +300,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-github-filled-3" width="24" height="24"/>
+        <image name="github-logo" width="24" height="24"/>
     </resources>
 </document>
