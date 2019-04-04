@@ -40,7 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="🤔 - Thinking out loud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gI-TX-LIk">
-                                <rect key="frame" x="16" y="353.5" width="343" height="23"/>
+                                <rect key="frame" x="16" y="353.5" width="291" height="23"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -223,24 +223,34 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvk-Zf-3nf">
+                                <rect key="frame" x="327" y="348.5" width="32" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xv4-wJ-nX7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YjC-ka-6lh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1qR-jc-kxs"/>
                             <constraint firstItem="YjC-ka-6lh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7nm-Go-aOS"/>
                             <constraint firstItem="7DV-xh-MVa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BId-hu-69u"/>
+                            <constraint firstItem="Kf3-UY-UtI" firstAttribute="trailing" secondItem="wvk-Zf-3nf" secondAttribute="trailing" id="CHs-dz-I3j"/>
                             <constraint firstItem="7DV-xh-MVa" firstAttribute="top" secondItem="YjC-ka-6lh" secondAttribute="bottom" constant="16" id="Cfw-ps-yVf"/>
                             <constraint firstItem="lxn-sh-FT2" firstAttribute="firstBaseline" secondItem="Kf3-UY-UtI" secondAttribute="baseline" constant="20" id="DEt-NV-Rh7"/>
                             <constraint firstItem="2gI-TX-LIk" firstAttribute="leading" secondItem="7DV-xh-MVa" secondAttribute="leading" id="E3h-nr-Ns7"/>
-                            <constraint firstItem="Kf3-UY-UtI" firstAttribute="trailing" secondItem="2gI-TX-LIk" secondAttribute="trailing" id="GxV-93-vPq"/>
+                            <constraint firstItem="wvk-Zf-3nf" firstAttribute="centerY" secondItem="2gI-TX-LIk" secondAttribute="centerY" id="FSr-wP-tTE"/>
                             <constraint firstItem="Kf3-UY-UtI" firstAttribute="leading" secondItem="2gI-TX-LIk" secondAttribute="leading" id="L98-X9-iVP"/>
                             <constraint firstItem="2gI-TX-LIk" firstAttribute="top" secondItem="7DV-xh-MVa" secondAttribute="bottom" constant="10" id="MhV-9N-SSx"/>
                             <constraint firstItem="lxn-sh-FT2" firstAttribute="trailing" secondItem="Kf3-UY-UtI" secondAttribute="trailing" id="QEQ-gR-yyp"/>
+                            <constraint firstItem="wvk-Zf-3nf" firstAttribute="trailing" secondItem="7DV-xh-MVa" secondAttribute="trailing" id="U3k-8z-2wR"/>
                             <constraint firstItem="lxn-sh-FT2" firstAttribute="leading" secondItem="Kf3-UY-UtI" secondAttribute="leading" id="VDB-jq-xcp"/>
                             <constraint firstItem="Kf3-UY-UtI" firstAttribute="top" secondItem="2gI-TX-LIk" secondAttribute="bottom" constant="12" id="ac6-Zr-S5P"/>
                             <constraint firstItem="YjC-ka-6lh" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.45" id="aon-mz-M1T"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7DV-xh-MVa" secondAttribute="trailing" constant="16" id="kpJ-df-p6H"/>
-                            <constraint firstItem="2gI-TX-LIk" firstAttribute="trailing" secondItem="7DV-xh-MVa" secondAttribute="trailing" id="zmS-IZ-TIp"/>
+                            <constraint firstItem="wvk-Zf-3nf" firstAttribute="leading" secondItem="2gI-TX-LIk" secondAttribute="trailing" constant="20" id="rsg-SI-xa9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <userDefinedRuntimeAttributes>

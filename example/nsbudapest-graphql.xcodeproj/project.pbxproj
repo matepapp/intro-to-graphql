@@ -18,13 +18,13 @@
 		099C99532253C36B00CDA478 /* StarredRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99522253C36B00CDA478 /* StarredRepositoriesViewController.swift */; };
 		099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99552253C64E00CDA478 /* UIImageView+Download.swift */; };
 		099C99582253E7FE00CDA478 /* UIImageView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */; };
-		099DA24D22567CCB00DC1676 /* StarredRepositoriesQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA24C22567CCB00DC1676 /* StarredRepositoriesQuery.graphql */; };
+		099DA24D22567CCB00DC1676 /* StarredRepositoriesViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA24C22567CCB00DC1676 /* StarredRepositoriesViewController.graphql */; };
 		099DA25022567D0C00DC1676 /* StarredRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA24E22567D0C00DC1676 /* StarredRepositoryTableViewCell.swift */; };
 		099DA25122567D0C00DC1676 /* StarredRepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099DA24F22567D0C00DC1676 /* StarredRepositoryTableViewCell.xib */; };
 		099DA2532256813D00DC1676 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA2522256813D00DC1676 /* UITableViewCell+Reusable.swift */; };
 		099DA255225681EA00DC1676 /* UITableViewCell+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA254225681EA00DC1676 /* UITableViewCell+NibLoadable.swift */; };
-		099DA25722568A4300DC1676 /* StarredRepositoryCell.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA25622568A4300DC1676 /* StarredRepositoryCell.graphql */; };
-		09FB42A922516A4300B3C76A /* ProfileQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ProfileQuery.graphql */; };
+		099DA25722568A4300DC1676 /* StarredRepositoryTableViewCell.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA25622568A4300DC1676 /* StarredRepositoryTableViewCell.graphql */; };
+		09FB42A922516A4300B3C76A /* ProfileViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ProfileViewController.graphql */; };
 		2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +42,13 @@
 		099C99522253C36B00CDA478 /* StarredRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoriesViewController.swift; sourceTree = "<group>"; };
 		099C99552253C64E00CDA478 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rounded.swift"; sourceTree = "<group>"; };
-		099DA24C22567CCB00DC1676 /* StarredRepositoriesQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StarredRepositoriesQuery.graphql; sourceTree = "<group>"; };
+		099DA24C22567CCB00DC1676 /* StarredRepositoriesViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StarredRepositoriesViewController.graphql; sourceTree = "<group>"; };
 		099DA24E22567D0C00DC1676 /* StarredRepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		099DA24F22567D0C00DC1676 /* StarredRepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarredRepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		099DA2522256813D00DC1676 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		099DA254225681EA00DC1676 /* UITableViewCell+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+NibLoadable.swift"; sourceTree = "<group>"; };
-		099DA25622568A4300DC1676 /* StarredRepositoryCell.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StarredRepositoryCell.graphql; sourceTree = "<group>"; };
-		09FB42A822516A4300B3C76A /* ProfileQuery.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileQuery.graphql; sourceTree = "<group>"; };
+		099DA25622568A4300DC1676 /* StarredRepositoryTableViewCell.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StarredRepositoryTableViewCell.graphql; sourceTree = "<group>"; };
+		09FB42A822516A4300B3C76A /* ProfileViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileViewController.graphql; sourceTree = "<group>"; };
 		7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nsbudapest_graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.release.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.release.xcconfig"; sourceTree = "<group>"; };
 		FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +99,7 @@
 		099C99422253B9B100CDA478 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				099C994C2253BB1B00CDA478 /* Storyboard */,
 				099C99512253C35400CDA478 /* Starred */,
 				099C99502253C33B00CDA478 /* Profile */,
 			);
@@ -127,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				099C994D2253BB2600CDA478 /* Assets */,
-				099C994C2253BB1B00CDA478 /* Storyboard */,
 				09207D9422515D0900E140CB /* Info.plist */,
 			);
 			path = Resources;
@@ -153,7 +153,7 @@
 		099C99502253C33B00CDA478 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				09FB42A822516A4300B3C76A /* ProfileQuery.graphql */,
+				09FB42A822516A4300B3C76A /* ProfileViewController.graphql */,
 				09207D8A22515D0800E140CB /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -162,9 +162,9 @@
 		099C99512253C35400CDA478 /* Starred */ = {
 			isa = PBXGroup;
 			children = (
-				099DA24C22567CCB00DC1676 /* StarredRepositoriesQuery.graphql */,
+				099DA24C22567CCB00DC1676 /* StarredRepositoriesViewController.graphql */,
 				099C99522253C36B00CDA478 /* StarredRepositoriesViewController.swift */,
-				099DA25622568A4300DC1676 /* StarredRepositoryCell.graphql */,
+				099DA25622568A4300DC1676 /* StarredRepositoryTableViewCell.graphql */,
 				099DA24E22567D0C00DC1676 /* StarredRepositoryTableViewCell.swift */,
 				099DA24F22567D0C00DC1676 /* StarredRepositoryTableViewCell.xib */,
 			);
@@ -264,11 +264,11 @@
 				099DA25122567D0C00DC1676 /* StarredRepositoryTableViewCell.xib in Resources */,
 				09207D9E2251693000E140CB /* schema.json in Resources */,
 				09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */,
-				099DA24D22567CCB00DC1676 /* StarredRepositoriesQuery.graphql in Resources */,
+				099DA24D22567CCB00DC1676 /* StarredRepositoriesViewController.graphql in Resources */,
 				09207D9022515D0900E140CB /* Assets.xcassets in Resources */,
 				09207D8E22515D0800E140CB /* Main.storyboard in Resources */,
-				09FB42A922516A4300B3C76A /* ProfileQuery.graphql in Resources */,
-				099DA25722568A4300DC1676 /* StarredRepositoryCell.graphql in Resources */,
+				09FB42A922516A4300B3C76A /* ProfileViewController.graphql in Resources */,
+				099DA25722568A4300DC1676 /* StarredRepositoryTableViewCell.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

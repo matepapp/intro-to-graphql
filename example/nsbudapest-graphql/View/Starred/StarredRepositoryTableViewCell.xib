@@ -25,6 +25,9 @@
                             <constraint firstAttribute="width" constant="40" id="1ya-5a-oOd"/>
                             <constraint firstAttribute="height" constant="40" id="hOr-Qf-GQG"/>
                         </constraints>
+                        <connections>
+                            <action selector="toggleStar:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cHe-m4-kt0"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzu-4L-98O">
                         <rect key="frame" x="214" y="26" width="42" height="21"/>

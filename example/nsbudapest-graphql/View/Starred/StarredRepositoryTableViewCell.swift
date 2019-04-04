@@ -7,23 +7,29 @@
 //
 
 import UIKit
+import Apollo
 
 class StarredRepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
     @IBOutlet private weak var starButton: UIButton!
     @IBOutlet private weak var starCountLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
+    private var isStarred = false {
+        didSet {
+            if isStarred {
+                starButton.setImage(UIImage(named: "star-filled"), for: .normal)
+            } else {
+                starButton.setImage(UIImage(named: "star"), for: .normal)
+            }
+        }
     }
 
-    private func setup() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
 
     func configure(fragment: RepositoryCellFragment) {
         textLabel?.text = fragment.name
-        let image = fragment.viewerHasStarred ? UIImage(named: "star-filled") : UIImage(named: "star")
-        starButton.setImage(image, for: .normal)
+        isStarred = fragment.viewerHasStarred
         starCountLabel.text = "\(fragment.stargazers.totalCount)"
     }
 }

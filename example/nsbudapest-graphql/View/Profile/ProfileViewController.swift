@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Apollo
 import Emoji
 import SkeletonView
 
@@ -22,12 +23,28 @@ final class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.showAnimatedSkeleton()
+        fetchProfileData()
+    }
 
-        Apollo.client.fetch(query: ProfileQuery()) { [unowned self] (result, error) in
+    private func fetchProfileData() {
+        view.showAnimatedSkeleton()
+        Apollo.client.fetch(
+            query: ProfileQuery(),
+            cachePolicy: CachePolicy.returnCacheDataAndFetch
+        ) { [weak self] (result, error) in
             guard error == nil, let viewer = result?.data?.viewer else { return }
-            self.view.hideSkeleton()
-            self.updateLabels(with: viewer)
+            self?.view.hideSkeleton()
+            self?.updateLabels(with: viewer)
+        }
+    }
+
+    private func changeStatus(emoji: String, message: String) {
+        statusLabel.showSkeleton()
+        let input = ChangeUserStatusInput(emoji: emoji, message: message)
+        Apollo.client.perform(mutation: ChangeUserStatusMutation(input: input)) { [weak self] (result, error) in
+            guard error == nil, let status = result?.data?.changeUserStatus?.status else { return }
+            self?.statusLabel.text = self?.constructStatusLabelText(from: status.fragments.statusFragment)
+            self?.statusLabel.hideSkeleton()
         }
     }
 
@@ -35,22 +52,52 @@ final class ProfileViewController: UIViewController {
         title = viewer.login
         avatarImageView.rounded.downloaded(from: viewer.avatarUrl, contentMode: .scaleAspectFill)
         nameLabel.text = viewer.name
-        statusLabel.text = constructStatusLabelText(from: viewer.status)
+        statusLabel.text = constructStatusLabelText(from: viewer.status?.fragments.statusFragment)
         bioLabel.text = viewer.bio
         companyLabel.text = viewer.company
         emailLabel.text = viewer.email
         locationLabel.text = viewer.location
         totalRepositories.text = "\(viewer.repositories.totalCount) repositories"
     }
+
+    @IBAction func editButtonTapped(_ sender: Any) {
+        showAlert()
+    }
 }
 
 extension ProfileViewController {
-    private func constructStatusLabelText(from status: ProfileQuery.Data.Viewer.Status?) -> String? {
+    private func constructStatusLabelText(from status: StatusFragment?) -> String? {
         guard let statusEmoji = status?.emoji, let statusMessage = status?.message else {
             return nil
         }
 
         return "\(statusEmoji.emojiUnescapedString) - \(statusMessage)"
+    }
+
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Change status", message: "", preferredStyle: .alert)
+
+        alertController.addTextField { textField in
+            textField.placeholder = "Emoji"
+        }
+
+        alertController.addTextField { textField in
+            textField.placeholder = "Message"
+        }
+
+        let confirmAction = UIAlertAction(title: "Submit", style: .default) { [weak self] _ in
+            guard
+                let textFields = alertController.textFields,
+                let emojiText = textFields[0].text,
+                let messageText = textFields[1].text
+                else { return }
+            self?.changeStatus(emoji: emojiText.emojiEscapedString, message: messageText)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

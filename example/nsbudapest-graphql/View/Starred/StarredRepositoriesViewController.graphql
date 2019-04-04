@@ -1,0 +1,14 @@
+query StarredRepositories($numberOfLastStarred: Int!) { 
+    viewer {
+        starredRepositories(last: $numberOfLastStarred) {
+            nodes {
+                ...RepositoryCellFragment
+            }
+        }
+        repositoriesContributedTo(last: 1) {
+            nodes {
+                ...RepositoryCellFragment
+            }
+        }
+    }
+}
