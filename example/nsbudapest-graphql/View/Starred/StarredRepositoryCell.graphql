@@ -1,0 +1,14 @@
+fragment RepositoryCellFragment on Repository {
+  owner {
+    login
+  }
+  name
+  primaryLanguage {
+    name
+    color
+  }
+  stargazers {
+    totalCount
+  }
+  viewerHasStarred
+}
