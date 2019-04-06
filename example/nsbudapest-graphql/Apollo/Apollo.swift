@@ -10,7 +10,7 @@ import Apollo
 
 final class Apollo {
     private enum Constant {
-        static let accessToken = "9da5fa3ff8ee2ee19dbf254e7096e955b9507871"
+        static let accessToken = ""
         static let url = URL(string: "https://api.github.com/graphql")!
         static var configuration: URLSessionConfiguration {
             let config = URLSessionConfiguration.default

@@ -6,7 +6,8 @@ target 'nsbudapest-graphql' do
   use_frameworks!
 
   # Pods for nsbudapest-graphql
-  pod "SkeletonView"
+  pod 'SkeletonView'
   pod 'Emoji-swift'
   pod 'Apollo'
+  pod 'UIColor_Hex_Swift', '~> 5.0.0'
 end

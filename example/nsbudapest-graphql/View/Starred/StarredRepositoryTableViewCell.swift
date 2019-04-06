@@ -8,10 +8,15 @@
 
 import UIKit
 import Apollo
+import UIColor_Hex_Swift
 
 class StarredRepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
-    @IBOutlet private weak var starButton: UIButton!
+    @IBOutlet private weak var languageView: UIView!
+    @IBOutlet private weak var repositoryLabel: UILabel!
+    @IBOutlet private weak var authorLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
     @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet private weak var starButton: UIButton!
 
     private var isStarred = false {
         didSet {
@@ -28,8 +33,11 @@ class StarredRepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
     }
 
     func configure(fragment: RepositoryCellFragment) {
-        textLabel?.text = fragment.name
-        isStarred = fragment.viewerHasStarred
+        languageView.backgroundColor = UIColor(fragment.primaryLanguage?.color ?? "EEE")
+        repositoryLabel.text = fragment.name
+        authorLabel.text = fragment.owner.login
+        languageLabel.text = fragment.primaryLanguage?.name
         starCountLabel.text = "\(fragment.stargazers.totalCount)"
+        isStarred = fragment.viewerHasStarred
     }
 }
