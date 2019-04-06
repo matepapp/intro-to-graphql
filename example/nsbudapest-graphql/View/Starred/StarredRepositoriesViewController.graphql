@@ -1,11 +1,15 @@
 query StarredRepositories($numberOfLastStarred: Int!) { 
     viewer {
-        starredRepositories(last: $numberOfLastStarred) {
+        repositories(
+            last: 1,
+            orderBy: { field: UPDATED_AT, direction: ASC },
+            affiliations: [OWNER]
+        ) {
             nodes {
                 ...RepositoryCellFragment
             }
         }
-        repositoriesContributedTo(last: 1) {
+        starredRepositories(last: $numberOfLastStarred) {
             nodes {
                 ...RepositoryCellFragment
             }

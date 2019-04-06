@@ -63,7 +63,7 @@ public struct ChangeUserStatusInput: GraphQLMapConvertible {
 
 public final class StarredRepositoriesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query StarredRepositories($numberOfLastStarred: Int!) {\n  viewer {\n    __typename\n    starredRepositories(last: $numberOfLastStarred) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n    repositoriesContributedTo(last: 1) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n  }\n}"
+    "query StarredRepositories($numberOfLastStarred: Int!) {\n  viewer {\n    __typename\n    repositories(last: 1, orderBy: {field: UPDATED_AT, direction: ASC}, affiliations: [OWNER]) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n    starredRepositories(last: $numberOfLastStarred) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(RepositoryCellFragment.fragmentDefinition) }
 
@@ -109,8 +109,8 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("repositories", arguments: ["last": 1, "orderBy": ["field": "UPDATED_AT", "direction": "ASC"], "affiliations": ["OWNER"]], type: .nonNull(.object(Repository.selections))),
         GraphQLField("starredRepositories", arguments: ["last": GraphQLVariable("numberOfLastStarred")], type: .nonNull(.object(StarredRepository.selections))),
-        GraphQLField("repositoriesContributedTo", arguments: ["last": 1], type: .nonNull(.object(RepositoriesContributedTo.selections))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -119,8 +119,8 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(starredRepositories: StarredRepository, repositoriesContributedTo: RepositoriesContributedTo) {
-        self.init(unsafeResultMap: ["__typename": "User", "starredRepositories": starredRepositories.resultMap, "repositoriesContributedTo": repositoriesContributedTo.resultMap])
+      public init(repositories: Repository, starredRepositories: StarredRepository) {
+        self.init(unsafeResultMap: ["__typename": "User", "repositories": repositories.resultMap, "starredRepositories": starredRepositories.resultMap])
       }
 
       public var __typename: String {
@@ -129,6 +129,16 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// A list of repositories that the user owns.
+      public var repositories: Repository {
+        get {
+          return Repository(unsafeResultMap: resultMap["repositories"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "repositories")
         }
       }
 
@@ -142,18 +152,8 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         }
       }
 
-      /// A list of repositories that the user recently contributed to.
-      public var repositoriesContributedTo: RepositoriesContributedTo {
-        get {
-          return RepositoriesContributedTo(unsafeResultMap: resultMap["repositoriesContributedTo"]! as! ResultMap)
-        }
-        set {
-          resultMap.updateValue(newValue.resultMap, forKey: "repositoriesContributedTo")
-        }
-      }
-
-      public struct StarredRepository: GraphQLSelectionSet {
-        public static let possibleTypes = ["StarredRepositoryConnection"]
+      public struct Repository: GraphQLSelectionSet {
+        public static let possibleTypes = ["RepositoryConnection"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -167,7 +167,7 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         }
 
         public init(nodes: [Node?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "StarredRepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+          self.init(unsafeResultMap: ["__typename": "RepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
         }
 
         public var __typename: String {
@@ -240,8 +240,8 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         }
       }
 
-      public struct RepositoriesContributedTo: GraphQLSelectionSet {
-        public static let possibleTypes = ["RepositoryConnection"]
+      public struct StarredRepository: GraphQLSelectionSet {
+        public static let possibleTypes = ["StarredRepositoryConnection"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -255,7 +255,7 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
         }
 
         public init(nodes: [Node?]? = nil) {
-          self.init(unsafeResultMap: ["__typename": "RepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
+          self.init(unsafeResultMap: ["__typename": "StarredRepositoryConnection", "nodes": nodes.flatMap { (value: [Node?]) -> [ResultMap?] in value.map { (value: Node?) -> ResultMap? in value.flatMap { (value: Node) -> ResultMap in value.resultMap } } }])
         }
 
         public var __typename: String {

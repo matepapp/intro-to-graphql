@@ -27,11 +27,7 @@ class StarredRepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
             }
         }
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
+    
     func configure(fragment: RepositoryCellFragment) {
         languageView.backgroundColor = UIColor(fragment.primaryLanguage?.color ?? "EEE")
         repositoryLabel.text = fragment.name

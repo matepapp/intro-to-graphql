@@ -43,7 +43,7 @@ final class ProfileViewController: UIViewController {
         let input = ChangeUserStatusInput(emoji: emoji, message: message)
         Apollo.client.perform(mutation: ChangeUserStatusMutation(input: input)) { [weak self] (result, error) in
             guard error == nil, let status = result?.data?.changeUserStatus?.status else { return }
-            self?.statusLabel.text = self?.constructStatusLabelText(from: status.fragments.statusFragment)
+            self?.statusLabel.text = status.fragments.statusFragment.statusLabel
             self?.statusLabel.hideSkeleton()
         }
     }
@@ -52,7 +52,7 @@ final class ProfileViewController: UIViewController {
         title = viewer.login
         avatarImageView.rounded.downloaded(from: viewer.avatarUrl, contentMode: .scaleAspectFill)
         nameLabel.text = viewer.name
-        statusLabel.text = constructStatusLabelText(from: viewer.status?.fragments.statusFragment)
+        statusLabel.text = viewer.status?.fragments.statusFragment.statusLabel
         bioLabel.text = viewer.bio
         companyLabel.text = viewer.company
         emailLabel.text = viewer.email
@@ -61,20 +61,6 @@ final class ProfileViewController: UIViewController {
     }
 
     @IBAction func editButtonTapped(_ sender: Any) {
-        showAlert()
-    }
-}
-
-extension ProfileViewController {
-    private func constructStatusLabelText(from status: StatusFragment?) -> String? {
-        guard let statusEmoji = status?.emoji, let statusMessage = status?.message else {
-            return nil
-        }
-
-        return "\(statusEmoji.emojiUnescapedString) - \(statusMessage)"
-    }
-
-    private func showAlert() {
         let alertController = UIAlertController(title: "Change status", message: "", preferredStyle: .alert)
 
         alertController.addTextField { textField in
@@ -98,6 +84,14 @@ extension ProfileViewController {
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension StatusFragment {
+    var statusLabel: String? {
+        guard let statusEmoji = emoji, let statusMessage = message else { return nil}
+
+        return "\(statusEmoji.emojiUnescapedString) - \(statusMessage)"
     }
 }
 

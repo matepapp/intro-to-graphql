@@ -31,7 +31,6 @@ final class StarredRepositoriesViewController: UIViewController {
         ]
     }
 
-    private var watcher: GraphQLQueryWatcher<StarredRepositoriesQuery>!
     private let repositoriesCount = 10
 
     override func viewDidLoad() {
@@ -52,13 +51,12 @@ final class StarredRepositoriesViewController: UIViewController {
     }
 
     private func fetchData() {
-        watcher = Apollo.client.watch(
+        Apollo.client.fetch(
             query: StarredRepositoriesQuery(numberOfLastStarred: repositoriesCount)
         ) { [unowned self] (result, error) in
                 guard error == nil, let viewer = result?.data?.viewer else { return }
-                self.view.hideSkeleton()
 
-                guard let contributed = viewer.repositoriesContributedTo.nodes else { return }
+                guard let contributed = viewer.repositories.nodes else { return }
                 self.contributedRepositories = contributed.compactMap { $0?.fragments.repositoryCellFragment }
 
                 guard let starred = viewer.starredRepositories.nodes else { return }
@@ -94,6 +92,6 @@ extension StarredRepositoriesViewController: UITableViewDataSource {
 
 extension StarredRepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Repositories you contributed" : "Starred Repositories"
+        return section == 0 ? "Your last active repository" : "Starred Repositories"
     }
 }
