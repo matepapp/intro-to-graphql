@@ -6,6 +6,8 @@ import frontend from './slides/part-1/04-frontend.mdx';
 import useCases from './slides/part-1/05-use-cases.mdx';
 import prosAndCons from './slides/part-1/06-pros-and-cons.mdx';
 import welcome2 from './slides/part-2/00-welcome.mdx';
+import recap from './slides/part-2/01-recap.mdx';
+import ios from './slides/part-2/02-ios.mdx';
 
 export { components } from 'mdx-deck-code-surfer';
 
@@ -19,5 +21,7 @@ export default [
   ...frontend,
   ...useCases,
   ...prosAndCons,
-  ...welcome2
+  ...welcome2,
+  ...recap,
+  ...ios
 ];
