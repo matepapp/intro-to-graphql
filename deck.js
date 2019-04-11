@@ -9,6 +9,7 @@ import welcome2 from './slides/part-2/00-welcome.mdx';
 import recap from './slides/part-2/01-recap.mdx';
 import ios from './slides/part-2/02-ios.mdx';
 import prosAndCons2 from './slides/part-2/03-pros-and-cons.mdx';
+import references from './slides/part-2/04-references.mdx';
 
 export { components } from 'mdx-deck-code-surfer';
 
@@ -25,5 +26,6 @@ export default [
   ...welcome2,
   ...recap,
   ...ios,
-  ...prosAndCons2
+  ...prosAndCons2,
+  ...references
 ];
