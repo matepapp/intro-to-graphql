@@ -51,8 +51,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="Very long bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf3-UY-UtI" userLabel="Bio Label">
-                                <rect key="frame" x="16" y="388.5" width="343" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="800" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kf3-UY-UtI" userLabel="Bio Label">
+                                <rect key="frame" x="16" y="388.5" width="343" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lxn-sh-FT2">
-                                <rect key="frame" x="16" y="427.5" width="343" height="244.5"/>
+                                <rect key="frame" x="16" y="403.5" width="343" height="244.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WO5-RG-6a1">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="55.5"/>
@@ -273,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="46.326836581709152"/>
         </scene>
-        <!--Starred Repositories View Controller-->
+        <!--Repositories View Controller-->
         <scene sceneID="1QU-SY-IP3">
             <objects>
-                <viewController id="rfD-Bw-Tt7" customClass="StarredRepositoriesViewController" customModule="nsbudapest_graphql" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rfD-Bw-Tt7" customClass="RepositoriesViewController" customModule="nsbudapest_graphql" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LzU-qT-Tnj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +298,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="igg-Yy-Pnf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="ZYP-pl-cAd"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="ZYP-pl-cAd"/>
                     <connections>
                         <outlet property="tableView" destination="zxm-kH-3v6" id="zbh-QO-afc"/>
                     </connections>

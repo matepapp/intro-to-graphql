@@ -21,6 +21,6 @@ final class Apollo {
 
     let client = ApolloClient(networkTransport: HTTPNetworkTransport(
         url: Constant.url,
-        configuration: Constant.configuration)
-    )
+        configuration: Constant.configuration
+    ))
 }

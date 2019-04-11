@@ -30,6 +30,7 @@ final class ProfileViewController: UIViewController {
 
     private func fetchProfileData() {
         view.showAnimatedSkeleton()
+
         apollo.client.fetch(
             query: ProfileQuery(),
             cachePolicy: CachePolicy.returnCacheDataAndFetch
@@ -42,6 +43,7 @@ final class ProfileViewController: UIViewController {
 
     private func changeStatus(emoji: String, message: String) {
         statusLabel.showSkeleton()
+
         let input = ChangeUserStatusInput(emoji: emoji, message: message)
         apollo.client.perform(mutation: ChangeUserStatusMutation(input: input)) { [weak self] (result, error) in
             guard error == nil, let status = result?.data?.changeUserStatus?.status else { return }
@@ -55,7 +57,6 @@ final class ProfileViewController: UIViewController {
         avatarImageView.rounded.downloaded(from: viewer.avatarUrl, contentMode: .scaleAspectFill)
         nameLabel.text = viewer.name
         statusLabel.text = viewer.status?.fragments.statusFragment.statusLabel
-        bioLabel.text = viewer.bio
         companyLabel.text = viewer.company
         emailLabel.text = viewer.email
         locationLabel.text = viewer.location

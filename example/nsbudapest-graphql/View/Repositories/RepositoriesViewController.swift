@@ -1,5 +1,5 @@
 //
-//  StarredViewController.swift
+//  RepositoriesViewController.swift
 //  nsbudapest-graphql
 //
 //  Created by Mate Papp on 2019. 04. 02..
@@ -7,32 +7,21 @@
 //
 
 import UIKit
-import Apollo
 
-final class StarredRepositoriesViewController: UIViewController {
+final class RepositoriesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
-    private var contributedRepositories: [RepositoryCellFragment] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-
-    private var starredRepositories: [RepositoryCellFragment] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-
+    private let apollo = Apollo()
+    private let numberOfLastActiveRepositories = 2
+    private let numberOfLastStarredRepositories = 10
+    private var lastActiveRepositories: [RepositoryCellFragment] = []
+    private var lastStarredRepositories: [RepositoryCellFragment] = []
     private var sections: [Int: [RepositoryCellFragment]] {
         return [
-            0: contributedRepositories,
-            1: starredRepositories
+            0: lastActiveRepositories,
+            1: lastStarredRepositories
         ]
     }
-
-    private let repositoriesCount = 10
-    private let apollo = Apollo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,29 +33,32 @@ final class StarredRepositoriesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(
-            StarredRepositoryTableViewCell.nib,
-            forCellReuseIdentifier: StarredRepositoryTableViewCell.reuseIdentifier
+            RepositoryTableViewCell.nib,
+            forCellReuseIdentifier: RepositoryTableViewCell.reuseIdentifier
         )
         tableView.estimatedRowHeight = 72.0
         tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func fetchData() {
-        apollo.client.fetch(
-            query: StarredRepositoriesQuery(numberOfLastStarred: repositoriesCount)
-        ) { [unowned self] (result, error) in
+        apollo.client.fetch(query: RepositoriesQuery(
+            numberOfLastActive: numberOfLastActiveRepositories,
+            numberOfLastStarred: numberOfLastStarredRepositories
+        )) { [weak self] (result, error) in
                 guard error == nil, let viewer = result?.data?.viewer else { return }
 
                 guard let contributed = viewer.repositories.nodes else { return }
-                self.contributedRepositories = contributed.compactMap { $0?.fragments.repositoryCellFragment }
+                self?.lastActiveRepositories = contributed.compactMap { $0?.fragments.repositoryCellFragment }
 
                 guard let starred = viewer.starredRepositories.nodes else { return }
-                self.starredRepositories = starred.compactMap { $0?.fragments.repositoryCellFragment }
+                self?.lastStarredRepositories = starred.compactMap { $0?.fragments.repositoryCellFragment }
+
+                self?.tableView.reloadData()
             }
     }
 }
 
-extension StarredRepositoriesViewController: UITableViewDataSource {
+extension RepositoriesViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -77,9 +69,9 @@ extension StarredRepositoriesViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: StarredRepositoryTableViewCell.reuseIdentifier,
+            withIdentifier: RepositoryTableViewCell.reuseIdentifier,
             for: indexPath
-        ) as? StarredRepositoryTableViewCell else {
+        ) as? RepositoryTableViewCell else {
             return UITableViewCell()
         }
 
@@ -91,8 +83,8 @@ extension StarredRepositoriesViewController: UITableViewDataSource {
     }
 }
 
-extension StarredRepositoriesViewController: UITableViewDelegate {
+extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Your last active repository" : "Starred Repositories"
+        return section == 0 ? "Your last \(numberOfLastActiveRepositories) active repositories" : "Starred Repositories"
     }
 }

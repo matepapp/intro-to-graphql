@@ -61,20 +61,22 @@ public struct ChangeUserStatusInput: GraphQLMapConvertible {
   }
 }
 
-public final class StarredRepositoriesQuery: GraphQLQuery {
+public final class RepositoriesQuery: GraphQLQuery {
   public let operationDefinition =
-    "query StarredRepositories($numberOfLastStarred: Int!) {\n  viewer {\n    __typename\n    repositories(last: 1, orderBy: {field: UPDATED_AT, direction: ASC}, affiliations: [OWNER]) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n    starredRepositories(last: $numberOfLastStarred) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n  }\n}"
+    "query Repositories($numberOfLastActive: Int!, $numberOfLastStarred: Int!) {\n  viewer {\n    __typename\n    repositories(last: $numberOfLastActive, orderBy: {field: UPDATED_AT, direction: ASC}, affiliations: [OWNER]) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n    starredRepositories(last: $numberOfLastStarred) {\n      __typename\n      nodes {\n        __typename\n        ...RepositoryCellFragment\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(RepositoryCellFragment.fragmentDefinition) }
 
+  public var numberOfLastActive: Int
   public var numberOfLastStarred: Int
 
-  public init(numberOfLastStarred: Int) {
+  public init(numberOfLastActive: Int, numberOfLastStarred: Int) {
+    self.numberOfLastActive = numberOfLastActive
     self.numberOfLastStarred = numberOfLastStarred
   }
 
   public var variables: GraphQLMap? {
-    return ["numberOfLastStarred": numberOfLastStarred]
+    return ["numberOfLastActive": numberOfLastActive, "numberOfLastStarred": numberOfLastStarred]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -109,7 +111,7 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("repositories", arguments: ["last": 1, "orderBy": ["field": "UPDATED_AT", "direction": "ASC"], "affiliations": ["OWNER"]], type: .nonNull(.object(Repository.selections))),
+        GraphQLField("repositories", arguments: ["last": GraphQLVariable("numberOfLastActive"), "orderBy": ["field": "UPDATED_AT", "direction": "ASC"], "affiliations": ["OWNER"]], type: .nonNull(.object(Repository.selections))),
         GraphQLField("starredRepositories", arguments: ["last": GraphQLVariable("numberOfLastStarred")], type: .nonNull(.object(StarredRepository.selections))),
       ]
 
@@ -333,7 +335,7 @@ public final class StarredRepositoriesQuery: GraphQLQuery {
 
 public final class ProfileQuery: GraphQLQuery {
   public let operationDefinition =
-    "query Profile {\n  viewer {\n    __typename\n    login\n    avatarUrl\n    name\n    status {\n      __typename\n      ...StatusFragment\n    }\n    bio\n    company\n    email\n    location\n    repositories {\n      __typename\n      totalCount\n    }\n  }\n}"
+    "query Profile {\n  viewer {\n    __typename\n    login\n    avatarUrl\n    name\n    status {\n      __typename\n      ...StatusFragment\n    }\n    company\n    email\n    location\n    repositories {\n      __typename\n      totalCount\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(StatusFragment.fragmentDefinition) }
 
@@ -376,7 +378,6 @@ public final class ProfileQuery: GraphQLQuery {
         GraphQLField("avatarUrl", type: .nonNull(.scalar(String.self))),
         GraphQLField("name", type: .scalar(String.self)),
         GraphQLField("status", type: .object(Status.selections)),
-        GraphQLField("bio", type: .scalar(String.self)),
         GraphQLField("company", type: .scalar(String.self)),
         GraphQLField("email", type: .nonNull(.scalar(String.self))),
         GraphQLField("location", type: .scalar(String.self)),
@@ -389,8 +390,8 @@ public final class ProfileQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(login: String, avatarUrl: String, name: String? = nil, status: Status? = nil, bio: String? = nil, company: String? = nil, email: String, location: String? = nil, repositories: Repository) {
-        self.init(unsafeResultMap: ["__typename": "User", "login": login, "avatarUrl": avatarUrl, "name": name, "status": status.flatMap { (value: Status) -> ResultMap in value.resultMap }, "bio": bio, "company": company, "email": email, "location": location, "repositories": repositories.resultMap])
+      public init(login: String, avatarUrl: String, name: String? = nil, status: Status? = nil, company: String? = nil, email: String, location: String? = nil, repositories: Repository) {
+        self.init(unsafeResultMap: ["__typename": "User", "login": login, "avatarUrl": avatarUrl, "name": name, "status": status.flatMap { (value: Status) -> ResultMap in value.resultMap }, "company": company, "email": email, "location": location, "repositories": repositories.resultMap])
       }
 
       public var __typename: String {
@@ -439,16 +440,6 @@ public final class ProfileQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue?.resultMap, forKey: "status")
-        }
-      }
-
-      /// The user's public profile bio.
-      public var bio: String? {
-        get {
-          return resultMap["bio"] as? String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "bio")
         }
       }
 

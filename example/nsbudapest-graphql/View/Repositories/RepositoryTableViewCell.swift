@@ -1,5 +1,5 @@
 //
-//  StarredRepositoryTableViewCell.swift
+//  RepositoryTableViewCell.swift
 //  nsbudapest-graphql
 //
 //  Created by Mate Papp on 2019. 04. 04..
@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Apollo
 import UIColor_Hex_Swift
 
-class StarredRepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
+final class RepositoryTableViewCell: UITableViewCell, Reusable, NibLoadable {
     @IBOutlet private weak var languageView: UIView!
     @IBOutlet private weak var repositoryLabel: UILabel!
     @IBOutlet private weak var authorLabel: UILabel!

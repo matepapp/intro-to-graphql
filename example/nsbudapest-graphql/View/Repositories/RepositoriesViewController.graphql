@@ -1,7 +1,7 @@
-query StarredRepositories($numberOfLastStarred: Int!) { 
+query Repositories($numberOfLastActive: Int!, $numberOfLastStarred: Int!) {
     viewer {
         repositories(
-            last: 1,
+            last: $numberOfLastActive,
             orderBy: { field: UPDATED_AT, direction: ASC },
             affiliations: [OWNER]
         ) {
