@@ -18,10 +18,9 @@ final class Apollo {
             return config
         }
     }
-    private static let url = Constant.url
-    private static var configuration = Constant.configuration
 
-    static let client = ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
-
-    private init() {}
+    let client = ApolloClient(networkTransport: HTTPNetworkTransport(
+        url: Constant.url,
+        configuration: Constant.configuration)
+    )
 }

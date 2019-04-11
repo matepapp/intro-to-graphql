@@ -32,6 +32,7 @@ final class StarredRepositoriesViewController: UIViewController {
     }
 
     private let repositoriesCount = 10
+    private let apollo = Apollo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ final class StarredRepositoriesViewController: UIViewController {
     }
 
     private func fetchData() {
-        Apollo.client.fetch(
+        apollo.client.fetch(
             query: StarredRepositoriesQuery(numberOfLastStarred: repositoriesCount)
         ) { [unowned self] (result, error) in
                 guard error == nil, let viewer = result?.data?.viewer else { return }

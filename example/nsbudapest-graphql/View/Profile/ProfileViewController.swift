@@ -21,6 +21,8 @@ final class ProfileViewController: UIViewController {
     @IBOutlet private weak var locationLabel: UILabel!
     @IBOutlet private weak var totalRepositories: UILabel!
 
+    private let apollo = Apollo()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchProfileData()
@@ -28,7 +30,7 @@ final class ProfileViewController: UIViewController {
 
     private func fetchProfileData() {
         view.showAnimatedSkeleton()
-        Apollo.client.fetch(
+        apollo.client.fetch(
             query: ProfileQuery(),
             cachePolicy: CachePolicy.returnCacheDataAndFetch
         ) { [weak self] (result, error) in
@@ -41,7 +43,7 @@ final class ProfileViewController: UIViewController {
     private func changeStatus(emoji: String, message: String) {
         statusLabel.showSkeleton()
         let input = ChangeUserStatusInput(emoji: emoji, message: message)
-        Apollo.client.perform(mutation: ChangeUserStatusMutation(input: input)) { [weak self] (result, error) in
+        apollo.client.perform(mutation: ChangeUserStatusMutation(input: input)) { [weak self] (result, error) in
             guard error == nil, let status = result?.data?.changeUserStatus?.status else { return }
             self?.statusLabel.text = status.fragments.statusFragment.statusLabel
             self?.statusLabel.hideSkeleton()
@@ -60,7 +62,7 @@ final class ProfileViewController: UIViewController {
         totalRepositories.text = "\(viewer.repositories.totalCount) repositories"
     }
 
-    @IBAction func editButtonTapped(_ sender: Any) {
+    @IBAction private func editButtonTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "Change status", message: "", preferredStyle: .alert)
 
         alertController.addTextField { textField in
