@@ -1,14 +1,16 @@
 # Intro to GraphQL
 
-## Part 1
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f4115459-eefb-4f9e-a3c3-c9d658761bf8/deploy-status)](https://app.netlify.com/sites/intro-to-graphql/deploys)
 
-An introductory presentation about GraphQL.
+2 part introductory presentation about GraphQL for iOS Developers (and anybody who is interested to learn something cool). Also it was a great chance to try out [mdx-deck](https://github.com/jxnblk/mdx-deck).
 
-Code highlighting supported by [code-surfer](https://github.com/pomber/code-surfer).
+[Check it out live!](https://intro-to-graphql.matepapp.com/)
 
-## Sources
+## Example
+
+There's a small example app in [`example`](https://github.com/matepapp/intro-to-graphql/tree/master/example) folder. If you want to use it generate a Personal Access Token for Github and set the [`accessToken`](https://github.com/matepapp/intro-to-graphql/blob/f6e762dcc5f9304f61b8783581941c359cec8c27/example/nsbudapest-graphql/Apollo/Apollo.swift#L13) variable.
+
+## References and sources
 
 - [Apollo's Blog](https://blog.apollographql.com)
 - [How to GraphQL](https://www.howtographql.com/)
@@ -21,6 +23,8 @@ Code highlighting supported by [code-surfer](https://github.com/pomber/code-surf
 ---
 
 The presentation was generated with [mdx-deck][]'s `npm init deck` command.
+
+Code highlighting supported by [code-surfer](https://github.com/pomber/code-surfer).
 
 ## Development
 
