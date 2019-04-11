@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09207D8922515D0800E140CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D8822515D0800E140CB /* AppDelegate.swift */; };
+		09207D8B22515D0800E140CB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D8A22515D0800E140CB /* ProfileViewController.swift */; };
+		09207D8E22515D0800E140CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8C22515D0800E140CB /* Main.storyboard */; };
+		09207D9022515D0900E140CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09207D8F22515D0900E140CB /* Assets.xcassets */; };
+		09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9122515D0900E140CB /* LaunchScreen.storyboard */; };
+		09207D9C2251692600E140CB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09207D9B2251692600E140CB /* API.swift */; };
+		09207D9E2251693000E140CB /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 09207D9D2251693000E140CB /* schema.json */; };
+		099C994F2253BBD900CDA478 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C994E2253BBD900CDA478 /* Apollo.swift */; };
+		099C99532253C36B00CDA478 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99522253C36B00CDA478 /* RepositoriesViewController.swift */; };
+		099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99552253C64E00CDA478 /* UIImageView+Download.swift */; };
+		099C99582253E7FE00CDA478 /* UIImageView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */; };
+		099DA24D22567CCB00DC1676 /* RepositoriesViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA24C22567CCB00DC1676 /* RepositoriesViewController.graphql */; };
+		099DA25122567D0C00DC1676 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099DA24F22567D0C00DC1676 /* RepositoryTableViewCell.xib */; };
+		099DA2532256813D00DC1676 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA2522256813D00DC1676 /* UITableViewCell+Reusable.swift */; };
+		099DA255225681EA00DC1676 /* UITableViewCell+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DA254225681EA00DC1676 /* UITableViewCell+NibLoadable.swift */; };
+		099DA25722568A4300DC1676 /* RepositoryTableViewCell.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 099DA25622568A4300DC1676 /* RepositoryTableViewCell.graphql */; };
+		09E4C16B225F4160000D2370 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E4C16A225F4160000D2370 /* RepositoryTableViewCell.swift */; };
+		09FB42A922516A4300B3C76A /* ProfileViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 09FB42A822516A4300B3C76A /* ProfileViewController.graphql */; };
+		2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09207D8522515D0800E140CB /* nsbudapest-graphql.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nsbudapest-graphql.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09207D8822515D0800E140CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		09207D8A22515D0800E140CB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		09207D8D22515D0800E140CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09207D8F22515D0900E140CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09207D9222515D0900E140CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		09207D9422515D0900E140CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09207D9B2251692600E140CB /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		09207D9D2251693000E140CB /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		099C994E2253BBD900CDA478 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		099C99522253C36B00CDA478 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		099C99552253C64E00CDA478 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Rounded.swift"; sourceTree = "<group>"; };
+		099DA24C22567CCB00DC1676 /* RepositoriesViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepositoriesViewController.graphql; sourceTree = "<group>"; };
+		099DA24F22567D0C00DC1676 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
+		099DA2522256813D00DC1676 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
+		099DA254225681EA00DC1676 /* UITableViewCell+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+NibLoadable.swift"; sourceTree = "<group>"; };
+		099DA25622568A4300DC1676 /* RepositoryTableViewCell.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepositoryTableViewCell.graphql; sourceTree = "<group>"; };
+		09E4C16A225F4160000D2370 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		09FB42A822516A4300B3C76A /* ProfileViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ProfileViewController.graphql; sourceTree = "<group>"; };
+		7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nsbudapest_graphql.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.release.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.release.xcconfig"; sourceTree = "<group>"; };
+		FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nsbudapest-graphql.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09207D8222515D0800E140CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FAE26343AC34B690ED3380A /* Pods_nsbudapest_graphql.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09207D7C22515D0800E140CB = {
+			isa = PBXGroup;
+			children = (
+				09207D8722515D0800E140CB /* nsbudapest-graphql */,
+				09207D8622515D0800E140CB /* Products */,
+				F34E3C4FA0CD145A1A8E85DB /* Pods */,
+				A0B9F28513CB157B82E6C36B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		09207D8622515D0800E140CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8522515D0800E140CB /* nsbudapest-graphql.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09207D8722515D0800E140CB /* nsbudapest-graphql */ = {
+			isa = PBXGroup;
+			children = (
+				099C99542253C63C00CDA478 /* Extension */,
+				099C994B2253BAFF00CDA478 /* Resources */,
+				099C99472253BA8500CDA478 /* Apollo */,
+				099C99462253BA4D00CDA478 /* App */,
+				099C99422253B9B100CDA478 /* View */,
+			);
+			path = "nsbudapest-graphql";
+			sourceTree = "<group>";
+		};
+		099C99422253B9B100CDA478 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				099C994C2253BB1B00CDA478 /* Storyboard */,
+				099C99512253C35400CDA478 /* Repositories */,
+				099C99502253C33B00CDA478 /* Profile */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		099C99462253BA4D00CDA478 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8822515D0800E140CB /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		099C99472253BA8500CDA478 /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				09207D9D2251693000E140CB /* schema.json */,
+				09207D9B2251692600E140CB /* API.swift */,
+				099C994E2253BBD900CDA478 /* Apollo.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		099C994B2253BAFF00CDA478 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				099C994D2253BB2600CDA478 /* Assets */,
+				09207D9422515D0900E140CB /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		099C994C2253BB1B00CDA478 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8C22515D0800E140CB /* Main.storyboard */,
+				09207D9122515D0900E140CB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		099C994D2253BB2600CDA478 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				09207D8F22515D0900E140CB /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		099C99502253C33B00CDA478 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				09FB42A822516A4300B3C76A /* ProfileViewController.graphql */,
+				09207D8A22515D0800E140CB /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		099C99512253C35400CDA478 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				099DA24C22567CCB00DC1676 /* RepositoriesViewController.graphql */,
+				099C99522253C36B00CDA478 /* RepositoriesViewController.swift */,
+				099DA25622568A4300DC1676 /* RepositoryTableViewCell.graphql */,
+				09E4C16A225F4160000D2370 /* RepositoryTableViewCell.swift */,
+				099DA24F22567D0C00DC1676 /* RepositoryTableViewCell.xib */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		099C99542253C63C00CDA478 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				099C99552253C64E00CDA478 /* UIImageView+Download.swift */,
+				099C99572253E7FE00CDA478 /* UIImageView+Rounded.swift */,
+				099DA2522256813D00DC1676 /* UITableViewCell+Reusable.swift */,
+				099DA254225681EA00DC1676 /* UITableViewCell+NibLoadable.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A0B9F28513CB157B82E6C36B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7878F808488E9989514F5BB5 /* Pods_nsbudapest_graphql.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F34E3C4FA0CD145A1A8E85DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */,
+				9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09207D8422515D0800E140CB /* nsbudapest-graphql */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09207D9722515D0900E140CB /* Build configuration list for PBXNativeTarget "nsbudapest-graphql" */;
+			buildPhases = (
+				63D05F2BDD51B1597AA2C823 /* [CP] Check Pods Manifest.lock */,
+				09207D9A2251665200E140CB /* Generate Apollo GraphQL API */,
+				09207D8122515D0800E140CB /* Sources */,
+				09207D8222515D0800E140CB /* Frameworks */,
+				09207D8322515D0800E140CB /* Resources */,
+				4F18EEC1C581F7C4644C1023 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "nsbudapest-graphql";
+			productName = "nsbudapest-graphql";
+			productReference = 09207D8522515D0800E140CB /* nsbudapest-graphql.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09207D7D22515D0800E140CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Mate Papp";
+				TargetAttributes = {
+					09207D8422515D0800E140CB = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 09207D8022515D0800E140CB /* Build configuration list for PBXProject "nsbudapest-graphql" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09207D7C22515D0800E140CB;
+			productRefGroup = 09207D8622515D0800E140CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09207D8422515D0800E140CB /* nsbudapest-graphql */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09207D8322515D0800E140CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099DA25122567D0C00DC1676 /* RepositoryTableViewCell.xib in Resources */,
+				09207D9E2251693000E140CB /* schema.json in Resources */,
+				09207D9322515D0900E140CB /* LaunchScreen.storyboard in Resources */,
+				099DA24D22567CCB00DC1676 /* RepositoriesViewController.graphql in Resources */,
+				09207D9022515D0900E140CB /* Assets.xcassets in Resources */,
+				09207D8E22515D0800E140CB /* Main.storyboard in Resources */,
+				09FB42A922516A4300B3C76A /* ProfileViewController.graphql in Resources */,
+				099DA25722568A4300DC1676 /* RepositoryTableViewCell.graphql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09207D9A2251665200E140CB /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=Apollo/schema.json Apollo/API.swift\n";
+		};
+		4F18EEC1C581F7C4644C1023 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Emoji-swift/Emoji.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
+				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Emoji.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nsbudapest-graphql/Pods-nsbudapest-graphql-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63D05F2BDD51B1597AA2C823 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nsbudapest-graphql-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09207D8122515D0800E140CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				099C99562253C64E00CDA478 /* UIImageView+Download.swift in Sources */,
+				09207D8B22515D0800E140CB /* ProfileViewController.swift in Sources */,
+				09207D9C2251692600E140CB /* API.swift in Sources */,
+				099C99532253C36B00CDA478 /* RepositoriesViewController.swift in Sources */,
+				09207D8922515D0800E140CB /* AppDelegate.swift in Sources */,
+				099DA2532256813D00DC1676 /* UITableViewCell+Reusable.swift in Sources */,
+				099C99582253E7FE00CDA478 /* UIImageView+Rounded.swift in Sources */,
+				099C994F2253BBD900CDA478 /* Apollo.swift in Sources */,
+				09E4C16B225F4160000D2370 /* RepositoryTableViewCell.swift in Sources */,
+				099DA255225681EA00DC1676 /* UITableViewCell+NibLoadable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		09207D8C22515D0800E140CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09207D8D22515D0800E140CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		09207D9122515D0900E140CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09207D9222515D0900E140CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		09207D9522515D0900E140CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09207D9622515D0900E140CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09207D9822515D0900E140CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF2C37621F58BF3E0CF74660 /* Pods-nsbudapest-graphql.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E6SA5UUA26;
+				INFOPLIST_FILE = "nsbudapest-graphql/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matepapp.nsbudapest-graphql";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09207D9922515D0900E140CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CABCBA0A996FFF1EC8BD22B /* Pods-nsbudapest-graphql.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E6SA5UUA26;
+				INFOPLIST_FILE = "nsbudapest-graphql/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.matepapp.nsbudapest-graphql";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09207D8022515D0800E140CB /* Build configuration list for PBXProject "nsbudapest-graphql" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09207D9522515D0900E140CB /* Debug */,
+				09207D9622515D0900E140CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09207D9722515D0900E140CB /* Build configuration list for PBXNativeTarget "nsbudapest-graphql" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09207D9822515D0900E140CB /* Debug */,
+				09207D9922515D0900E140CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09207D7D22515D0800E140CB /* Project object */;
+}

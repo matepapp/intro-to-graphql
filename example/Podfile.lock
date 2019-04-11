@@ -1,0 +1,30 @@
+PODS:
+  - Apollo (0.10.0):
+    - Apollo/Core (= 0.10.0)
+  - Apollo/Core (0.10.0)
+  - Emoji-swift (0.3.0)
+  - SkeletonView (1.4.2)
+  - UIColor_Hex_Swift (5.0.0)
+
+DEPENDENCIES:
+  - Apollo
+  - Emoji-swift
+  - SkeletonView
+  - UIColor_Hex_Swift (~> 5.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Apollo
+    - Emoji-swift
+    - SkeletonView
+    - UIColor_Hex_Swift
+
+SPEC CHECKSUMS:
+  Apollo: aa9b870203900b9526332ea3d12c37b4dc6ce1b9
+  Emoji-swift: 3f07baeecbeb1490193299f993890020aae8c413
+  SkeletonView: c2523c3c8c6510e273e49a3bf364a434744c3914
+  UIColor_Hex_Swift: ca96173c106070db96ae807313278d80170f23f4
+
+PODFILE CHECKSUM: 996d3a5c2cdf9ad86c286caf45e19a351d6bc133
+
+COCOAPODS: 1.6.1

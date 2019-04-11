@@ -1,0 +1,18 @@
+query Repositories($numberOfLastActive: Int!, $numberOfLastStarred: Int!) {
+    viewer {
+        repositories(
+            last: $numberOfLastActive,
+            orderBy: { field: UPDATED_AT, direction: ASC },
+            affiliations: [OWNER]
+        ) {
+            nodes {
+                ...RepositoryCellFragment
+            }
+        }
+        starredRepositories(last: $numberOfLastStarred) {
+            nodes {
+                ...RepositoryCellFragment
+            }
+        }
+    }
+}

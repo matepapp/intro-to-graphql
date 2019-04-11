@@ -1,0 +1,29 @@
+query Profile {
+    viewer {
+        login
+        avatarUrl
+        name
+        status {
+            ...StatusFragment
+        }
+        company
+        email
+        location
+        repositories {
+            totalCount
+        }
+    }
+}
+
+mutation ChangeUserStatus($input: ChangeUserStatusInput!) {
+    changeUserStatus(input: $input) {
+        status {
+            ...StatusFragment
+        }
+    }
+}
+
+fragment StatusFragment on UserStatus {
+    emoji
+    message
+}
